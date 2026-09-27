@@ -1,0 +1,20 @@
+import type { Business } from './business';
+
+export interface BusinessHeaderProps {
+  businessId?: string;
+  business?: Partial<Business>;
+  name?: string;
+  logoUrl?: string | null;
+  location?: string;
+  accentColor?: string;
+  className?: string;
+}
+
+export interface AvatarProps {
+  src?: string | null;
+  name?: string;
+  alt?: string;
+  accentColor?: string;
+  size?: number;
+  className?: string;
+}

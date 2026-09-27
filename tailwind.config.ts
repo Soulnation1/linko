@@ -9,14 +9,27 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ivory: '#F7F3ED',
-        charcoal: '#211D1A',
-        clay: '#C46A3F',     // default accent; real accent is runtime-dynamic
-        olive: '#5C6B4F',    // success / "live" / available
-        gold: '#E8A93B',     // pending / trial state
-        sky: '#4C7A8C',      // info / focus ring
-        line: 'rgba(33,29,26,0.12)',
-        muted: '#8A8177',
+        espresso: {
+          base: '#141211',
+          surface: '#221E1C',
+          card: '#25201E',
+          glass: 'rgba(37, 32, 30, 0.70)',
+          border: 'rgba(255, 255, 255, 0.08)',
+        },
+        mocha: {
+          DEFAULT: '#8C5A4C',
+          hover: '#9E6756',
+          accent: '#D98A5B',
+        },
+        cream: '#F5EFEA',
+        taupe: '#A39890',
+
+        // Legacy compatibility aliases
+        ivory: '#141211',
+        charcoal: '#F5EFEA',
+        clay: '#8C5A4C',
+        line: 'rgba(255, 255, 255, 0.08)',
+        muted: '#A39890',
       },
       fontFamily: {
         serif: ['var(--font-fraunces)', 'serif'],
