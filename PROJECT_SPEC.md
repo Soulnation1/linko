@@ -31,12 +31,13 @@ SaveUs is designed for all local businesses, services, and retail:
 ### 1. Customer Experience (Public Storefront)
 - Public business page accessed via QR code or link (`saveus.app/<slug>`).
 - Frictionless: No account creation required.
-- Browse offerings, see real-time prices & availability.
+- Browse products & services, see real-time prices & availability.
 - Select items/services and generate pre-filled WhatsApp order messages.
 
 ### 2. Business Owner Dashboard (Workspace & PWA)
 - Private business dashboard ("Welcome back, [Business Name] 👋").
 - Manage product/service catalog, prices, and availability flags.
+- View order counts with day/week/month filters.
 - View public link, copy/share URL, and download QR codes.
 - Optional PWA installation for quick access on mobile devices.
 
@@ -47,6 +48,6 @@ SaveUs is designed for all local businesses, services, and retail:
 
 ## How SaveUs Works
 
-1. **Create your business page**: Add offerings, prices, photos, and availability.
+1. **Create your business page**: Add products & services, prices, descriptions, images, and availability.
 2. **Share your link**: Get a permanent link (`saveus.app/business-name`) and printable QR code.
-3. **Customers connect**: Customers scan or click, browse live availability, and place orders directly.
+3. **Customers connect**: Customers scan or click, see live availability, and order in seconds.

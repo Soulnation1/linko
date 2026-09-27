@@ -23,12 +23,8 @@ import {
   Check,
   Building2,
   Download,
-  Flame,
-  Heart,
-  Home as HomeIcon,
 } from 'lucide-react';
 import { BusinessHeader } from '@/components/ui/business-header';
-
 import type { Variants } from 'framer-motion';
 
 // Framer Motion Animation Variants
@@ -52,23 +48,15 @@ const staggerContainer: Variants = {
   },
 };
 
-const scaleIn = {
-  hidden: { opacity: 0, scale: 0.92 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.5, ease: 'easeOut' },
-  },
-};
-
 export default function SaveUsLandingPage() {
   const [activeTab, setActiveTab] = useState<'customer' | 'business'>('customer');
   const [demoCartQty, setDemoCartQty] = useState(2);
+  const [orderTimeFilter, setOrderTimeFilter] = useState<'day' | 'week' | 'month'>('day');
 
   return (
     <div className="min-h-screen bg-[#141211] text-[#F5EFEA] font-sans selection:bg-[#8C5A4C] selection:text-white overflow-x-hidden">
-      {/* 1. Header / Navigation */}
-      <header className="sticky top-0 z-50 bg-[#141211]/85 backdrop-blur-md border-b border-white/10">
+      {/* 1. Header / Navigation (Fixed Top Bar) */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#141211]/90 backdrop-blur-md border-b border-white/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 group">
             <motion.div
@@ -117,7 +105,7 @@ export default function SaveUsLandingPage() {
       </header>
 
       {/* 2. Hero Section */}
-      <section className="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-28 border-b border-white/5">
+      <section className="relative overflow-hidden pt-28 pb-20 md:pt-36 md:pb-28 border-b border-white/5">
         {/* Glow backdrop animation */}
         <motion.div
           animate={{
@@ -297,14 +285,55 @@ export default function SaveUsLandingPage() {
                 </div>
               </div>
 
+              {/* Metric Cards (Updated Terminology + Time Filters for Orders) */}
               <div className="grid grid-cols-2 gap-3">
-                <div className="bg-[#1A1716] p-3 rounded-xl border border-white/5">
-                  <span className="text-[10.5px] text-[#A39890] uppercase font-mono">Total Offerings</span>
+                <div className="bg-[#1A1716] p-3 rounded-xl border border-white/5 flex flex-col justify-between">
+                  <span className="text-[10.5px] text-[#A39890] uppercase font-mono">Total Products</span>
                   <p className="text-xl font-bold font-mono text-[#F5EFEA] mt-1">24 Items</p>
                 </div>
-                <div className="bg-[#1A1716] p-3 rounded-xl border border-white/5">
-                  <span className="text-[10.5px] text-[#A39890] uppercase font-mono">Today's Views</span>
-                  <p className="text-xl font-bold font-mono text-[#D98A5B] mt-1">184 Clicks</p>
+
+                <div className="bg-[#1A1716] p-3 rounded-xl border border-white/5 space-y-1">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10.5px] text-[#A39890] uppercase font-mono">Orders Count</span>
+                    <div className="flex items-center gap-1 bg-[#221E1C] p-0.5 rounded border border-white/5 text-[9px] font-mono">
+                      <button
+                        onClick={() => setOrderTimeFilter('day')}
+                        className={`px-1.5 py-0.5 rounded transition-colors ${
+                          orderTimeFilter === 'day' ? 'bg-[#8C5A4C] text-white font-bold' : 'text-[#A39890]'
+                        }`}
+                      >
+                        Day
+                      </button>
+                      <button
+                        onClick={() => setOrderTimeFilter('week')}
+                        className={`px-1.5 py-0.5 rounded transition-colors ${
+                          orderTimeFilter === 'week' ? 'bg-[#8C5A4C] text-white font-bold' : 'text-[#A39890]'
+                        }`}
+                      >
+                        Week
+                      </button>
+                      <button
+                        onClick={() => setOrderTimeFilter('month')}
+                        className={`px-1.5 py-0.5 rounded transition-colors ${
+                          orderTimeFilter === 'month' ? 'bg-[#8C5A4C] text-white font-bold' : 'text-[#A39890]'
+                        }`}
+                      >
+                        Month
+                      </button>
+                    </div>
+                  </div>
+                  <div className="flex items-baseline justify-between pt-0.5">
+                    <p className="text-xl font-bold font-mono text-[#D98A5B]">
+                      {orderTimeFilter === 'day' && '14'}
+                      {orderTimeFilter === 'week' && '86'}
+                      {orderTimeFilter === 'month' && '340'}
+                    </p>
+                    <span className="text-[10.5px] font-mono text-[#A39890]">
+                      {orderTimeFilter === 'day' && '₦42,000'}
+                      {orderTimeFilter === 'week' && '₦258,000'}
+                      {orderTimeFilter === 'month' && '₦1,020,000'}
+                    </span>
+                  </div>
                 </div>
               </div>
 
@@ -345,18 +374,24 @@ export default function SaveUsLandingPage() {
             </motion.p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            {/* Left: Chat Chaos Animated */}
+          <div className="grid lg:grid-cols-12 gap-8 items-start">
+            {/* Left: Traditional Chat Chaos */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-[#221E1C] border border-white/10 rounded-2xl p-6 space-y-4"
+              className="lg:col-span-5 bg-[#221E1C] border border-white/10 rounded-2xl p-6 space-y-4 shadow-xl"
             >
-              <h3 className="font-serif font-bold text-sm text-[#A39890] uppercase tracking-wider">
-                ❌ Traditional Messaging Chaos
-              </h3>
+              <div className="flex items-center justify-between border-b border-white/10 pb-3">
+                <h3 className="font-serif font-bold text-sm text-red-400 flex items-center gap-1.5">
+                  <span>❌ Traditional Messaging Chaos</span>
+                </h3>
+                <span className="text-[10px] font-mono text-[#A39890] bg-[#1A1716] px-2 py-0.5 rounded">
+                  ~15 mins wasted
+                </span>
+              </div>
+
               <div className="space-y-3 text-xs">
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
@@ -398,30 +433,73 @@ export default function SaveUsLandingPage() {
                 >
                   "Okay how do I place my order?"
                 </motion.div>
+                <p className="text-[11px] text-[#A39890] italic text-center pt-2">
+                  Repetitive manual questions for every single customer.
+                </p>
               </div>
             </motion.div>
 
-            {/* Right: SaveUs Solution Animated */}
+            {/* Right: The SaveUs Solution Flow */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-gradient-to-br from-[#8C5A4C]/25 to-[#221E1C] border border-[#8C5A4C]/40 rounded-2xl p-6 space-y-5"
+              className="lg:col-span-7 bg-gradient-to-br from-[#8C5A4C]/20 to-[#221E1C] border border-[#8C5A4C]/40 rounded-2xl p-6 space-y-5 shadow-2xl"
             >
-              <h3 className="font-serif font-bold text-base text-[#F5EFEA] flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5 text-[#D98A5B]" /> The SaveUs Solution
-              </h3>
-              <p className="text-sm text-[#A39890] leading-relaxed">
-                SaveUs removes the unnecessary back-and-forth. Customers click your link, view current prices and availability instantly, and contact you with their selection already formatted.
-              </p>
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="p-4 bg-[#141211] rounded-xl border border-white/10 font-mono text-xs text-[#D98A5B] flex items-center justify-between shadow-lg"
-              >
-                <span>SaveUs — Less asking. More doing.</span>
-                <Sparkles className="w-4 h-4" />
-              </motion.div>
+              <div className="flex items-center justify-between border-b border-white/10 pb-3">
+                <h3 className="font-serif font-bold text-base text-[#F5EFEA] flex items-center gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-[#D98A5B]" /> The SaveUs Solution Flow
+                </h3>
+                <span className="text-[10px] font-mono text-[#D98A5B] bg-[#8C5A4C]/30 px-2.5 py-0.5 rounded-full border border-[#8C5A4C]/40">
+                  Instant & Frictionless
+                </span>
+              </div>
+
+              {/* Step-by-Step Flow List */}
+              <div className="space-y-3 text-xs">
+                {/* Step 1 & 2 Chat preview */}
+                <div className="space-y-2 bg-[#141211]/80 p-3.5 rounded-xl border border-white/10">
+                  <div className="flex items-center justify-between text-[11px] text-[#D98A5B] font-mono mb-1">
+                    <span>1. Customer Message & Auto-Response</span>
+                  </div>
+                  <div className="bg-[#1A1716] p-2.5 rounded-lg text-[#F5EFEA] max-w-[80%]">
+                    "Hi"
+                  </div>
+                  <div className="bg-[#8C5A4C]/40 p-2.5 rounded-lg text-[#F5EFEA] max-w-[85%] ml-auto text-right border border-[#8C5A4C]/50">
+                    "Hi! Click this link to check what we have today: <span className="underline text-[#D98A5B] font-mono">saveus.app/chuks-kitchen</span>"
+                  </div>
+                </div>
+
+                {/* Step 3 & 4 Menu selection */}
+                <div className="space-y-2 bg-[#141211]/80 p-3.5 rounded-xl border border-white/10">
+                  <div className="flex items-center justify-between text-[11px] text-[#D98A5B] font-mono mb-1">
+                    <span>2. Customer Opens Link & Selects Products</span>
+                  </div>
+                  <p className="text-[#A39890]">
+                    Customer lands on <span className="text-[#F5EFEA] font-semibold">Chuks Kitchen</span> storefront, checks live availability, and selects <span className="text-[#F5EFEA] font-semibold">2 × Jollof Rice & Chicken</span>.
+                  </p>
+                </div>
+
+                {/* Step 5 & 6 Order preview & WhatsApp button */}
+                <div className="space-y-2 bg-[#141211]/80 p-3.5 rounded-xl border border-white/10">
+                  <div className="flex items-center justify-between text-[11px] text-[#D98A5B] font-mono mb-1">
+                    <span>3. Pre-formatted Order & WhatsApp CTA</span>
+                  </div>
+                  <div className="bg-[#1A1716] p-2.5 rounded-lg font-mono text-[11px] text-[#F5EFEA] border border-white/5">
+                    "Hi Chuks Kitchen, I'd like to order: 2 × Jollof Rice & Chicken — ₦6,000. Total: ₦6,000"
+                  </div>
+                  <button className="w-full bg-[#25D366] hover:bg-[#20bd5a] text-black font-bold text-xs py-2.5 px-3 rounded-lg flex items-center justify-center gap-2 transition-colors">
+                    Continue on WhatsApp
+                  </button>
+                </div>
+
+                {/* Step 7 Vendor reply */}
+                <div className="bg-[#8C5A4C]/20 border border-[#8C5A4C]/40 p-3 rounded-xl flex items-center justify-between">
+                  <span className="text-[#F5EFEA] font-medium">4. Vendor replies with Account Details & completes order!</span>
+                  <Check className="w-4 h-4 text-[#D98A5B] flex-shrink-0" />
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -461,9 +539,9 @@ export default function SaveUsLandingPage() {
               <div className="w-12 h-12 rounded-2xl bg-[#8C5A4C]/20 text-[#D98A5B] font-mono font-bold text-xl flex items-center justify-center border border-[#8C5A4C]/30">
                 1
               </div>
-              <h3 className="font-serif font-bold text-lg text-[#F5EFEA]">Create your page</h3>
+              <h3 className="font-serif font-bold text-lg text-[#F5EFEA]">Create your business page</h3>
               <p className="text-sm text-[#A39890] leading-relaxed">
-                Add your offerings, prices, descriptions, images, and mark items as available or sold out in seconds.
+                Add your products & services, prices, descriptions, images, and mark items as available or sold out in seconds.
               </p>
             </motion.div>
 
@@ -652,11 +730,14 @@ export default function SaveUsLandingPage() {
                     Your brand. Your workspace.
                   </h3>
                   <p className="text-sm text-[#A39890] leading-relaxed">
-                    SaveUs feels like your own business workspace. Update prices, toggle availability when items run out, and copy your link anytime.
+                    SaveUs feels like your own business workspace. Update prices, toggle availability when items run out, track order metrics, and copy your link anytime.
                   </p>
                   <ul className="space-y-3 text-sm text-[#F5EFEA]">
                     <li className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-[#8C5A4C]" /> 1-tap availability toggles
+                      <CheckCircle2 className="w-4 h-4 text-[#8C5A4C]" /> Order count metrics filtered by Day, Week, & Month
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-[#8C5A4C]" /> 1-tap product availability toggles
                     </li>
                     <li className="flex items-center gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#8C5A4C]" /> Dynamic link and QR code management
@@ -675,6 +756,58 @@ export default function SaveUsLandingPage() {
                     <span className="text-xs font-mono bg-[#8C5A4C]/20 text-[#D98A5B] px-3 py-1 rounded-full border border-[#8C5A4C]/30">
                       Dashboard PWA
                     </span>
+                  </div>
+
+                  {/* Dashboard Metrics with Time Filter */}
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="bg-[#1A1716] p-3 rounded-xl border border-white/5 flex flex-col justify-between">
+                      <span className="text-[10.5px] text-[#A39890] uppercase font-mono">Total Products</span>
+                      <p className="text-xl font-bold font-mono text-[#F5EFEA] mt-1">24 Items</p>
+                    </div>
+
+                    <div className="bg-[#1A1716] p-3 rounded-xl border border-white/5 space-y-1">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10.5px] text-[#A39890] uppercase font-mono">Orders Count</span>
+                        <div className="flex items-center gap-1 bg-[#221E1C] p-0.5 rounded border border-white/5 text-[9px] font-mono">
+                          <button
+                            onClick={() => setOrderTimeFilter('day')}
+                            className={`px-1.5 py-0.5 rounded transition-colors ${
+                              orderTimeFilter === 'day' ? 'bg-[#8C5A4C] text-white font-bold' : 'text-[#A39890]'
+                            }`}
+                          >
+                            Day
+                          </button>
+                          <button
+                            onClick={() => setOrderTimeFilter('week')}
+                            className={`px-1.5 py-0.5 rounded transition-colors ${
+                              orderTimeFilter === 'week' ? 'bg-[#8C5A4C] text-white font-bold' : 'text-[#A39890]'
+                            }`}
+                          >
+                            Week
+                          </button>
+                          <button
+                            onClick={() => setOrderTimeFilter('month')}
+                            className={`px-1.5 py-0.5 rounded transition-colors ${
+                              orderTimeFilter === 'month' ? 'bg-[#8C5A4C] text-white font-bold' : 'text-[#A39890]'
+                            }`}
+                          >
+                            Month
+                          </button>
+                        </div>
+                      </div>
+                      <div className="flex items-baseline justify-between pt-0.5">
+                        <p className="text-xl font-bold font-mono text-[#D98A5B]">
+                          {orderTimeFilter === 'day' && '14'}
+                          {orderTimeFilter === 'week' && '86'}
+                          {orderTimeFilter === 'month' && '340'}
+                        </p>
+                        <span className="text-[10.5px] font-mono text-[#A39890]">
+                          {orderTimeFilter === 'day' && '₦42,000'}
+                          {orderTimeFilter === 'week' && '₦258,000'}
+                          {orderTimeFilter === 'month' && '₦1,020,000'}
+                        </span>
+                      </div>
+                    </div>
                   </div>
 
                   <div className="space-y-2">
