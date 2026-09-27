@@ -18,3 +18,9 @@ export interface AvatarProps {
   size?: number;
   className?: string;
 }
+
+export interface LogoProps {
+  variant?: 'full' | 'mark' | 'text';
+  size?: 'sm' | 'md' | 'lg';
+  className?: string;
+}

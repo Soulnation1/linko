@@ -25,6 +25,7 @@ import {
   Download,
 } from 'lucide-react';
 import { BusinessHeader } from '@/components/ui/business-header';
+import { SaveUsLogo } from '@/components/ui/logo';
 import type { Variants } from 'framer-motion';
 
 // Framer Motion Animation Variants
@@ -58,16 +59,8 @@ export default function SaveUsLandingPage() {
       {/* 1. Header / Navigation (Fixed Top Bar) */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#141211]/90 backdrop-blur-md border-b border-white/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group">
-            <motion.div
-              whileHover={{ rotate: 10, scale: 1.05 }}
-              className="w-8 h-8 rounded-xl bg-[#8C5A4C] flex items-center justify-center font-serif font-bold text-lg text-white shadow-md shadow-[#8C5A4C]/30"
-            >
-              S
-            </motion.div>
-            <span className="font-serif font-bold text-xl tracking-tight text-[#F5EFEA]">
-              SaveUs<span className="text-[#D98A5B]">.</span>
-            </span>
+          <Link href="/" className="group">
+            <SaveUsLogo size="md" />
           </Link>
 
           <nav className="hidden md:flex items-center gap-8 text-sm text-[#A39890]">
@@ -1040,12 +1033,9 @@ export default function SaveUsLandingPage() {
       {/* 11. Footer */}
       <footer className="border-t border-white/10 py-12 text-xs text-[#A39890]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-lg bg-[#8C5A4C] text-white font-serif font-bold text-xs flex items-center justify-center">
-              S
-            </div>
-            <span className="font-serif font-bold text-base text-[#F5EFEA]">SaveUs</span>
-          </div>
+          <Link href="/" className="group">
+            <SaveUsLogo size="sm" />
+          </Link>
 
           <p>© {new Date().getFullYear()} SaveUs. Less asking. More doing.</p>
 
