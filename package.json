@@ -1,13 +1,13 @@
 {
-  "name": "saveus",
+  "name": "linko",
   "version": "0.1.0",
   "private": true,
   "bin": {
-    "saveus": "./saveus.cmd"
+    "linko": "./linko.cmd"
   },
   "scripts": {
     "dev": "next dev",
-    "saveus": "next dev",
+    "linko": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"

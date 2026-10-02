@@ -1,4 +1,4 @@
-# Buynow — Project Setup, Architecture, Style Guide & PWA Spec
+# Linko — Project Setup, Architecture, Style Guide & PWA Spec
 
 For: coding agent in IDE · Scope: bootstrap the project itself (not screen-by-screen UI — that's a separate handoff)
 
@@ -7,7 +7,7 @@ For: coding agent in IDE · Scope: bootstrap the project itself (not screen-by-s
 ## 1. Project setup
 
 ```bash
-npx create-next-app@latest Buynow --typescript --tailwind --eslint --app --src-dir --import-alias "@/*"
+npx create-next-app@latest Linko --typescript --tailwind --eslint --app --src-dir --import-alias "@/*"
 ```
 
 Confirm these choices when scaffolding:
@@ -153,9 +153,9 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Buynow",
-    short_name: "Buynow",
-    description: "Digital menus and WhatsApp ordering for small businesses",
+    name: "Linko",
+    short_name: "Linko",
+    description: "Simple for businesses. Easy for customers.",
     start_url: "/",
     display: "standalone",
     background_color: "#F7F3ED",

@@ -1,21 +1,21 @@
-# SaveUs Product Specification & Architecture Guide
+# Linko Product Specification & Architecture Guide
 
-SaveUs is a multi-tenant digital business platform that helps businesses eliminate repetitive questions by giving each business a shareable digital page and QR code.
+Linko is a multi-tenant digital business platform that helps businesses eliminate repetitive questions by giving each business a shareable digital page and QR code.
 
 ---
 
 ## Core Positioning & Value Proposition
 
-- **Primary Tagline**: SaveUs — Less asking. More doing.
+- **Primary Tagline**: Simple for businesses. Easy for customers.
 - **Supporting Message**: Everything your customers need, one link away.
 - **Problem Statement**: Reduces repetitive back-and-forth ("How much is this?", "Do you have this available?", "How can I order?").
-- **Solution**: SaveUs gives each business its own permanent shareable page (`saveus.app/chuks-kitchen`) and QR code.
+- **Solution**: Linko gives each business its own permanent shareable page (`linko.app/chuks-kitchen`) and QR code.
 
 ---
 
 ## Target Industries (Vertical Neutral)
 
-SaveUs is designed for all local businesses, services, and retail:
+Linko is designed for all local businesses, services, and retail:
 - Restaurants, Food Vendors, & Bakeries
 - Fashion Stores & Tailors
 - Phone & Electronics Retailers
@@ -29,7 +29,7 @@ SaveUs is designed for all local businesses, services, and retail:
 ## Product Ecosystem & Architecture
 
 ### 1. Customer Experience (Public Storefront)
-- Public business page accessed via QR code or link (`saveus.app/<slug>`).
+- Public business page accessed via QR code or link (`linko.app/<slug>`).
 - Frictionless: No account creation required.
 - Browse products & services, see real-time prices & availability.
 - Select items/services and generate pre-filled WhatsApp order messages.
@@ -41,13 +41,13 @@ SaveUs is designed for all local businesses, services, and retail:
 - View public link, copy/share URL, and download QR codes.
 - Optional PWA installation for quick access on mobile devices.
 
-### 3. SaveUs Admin Dashboard
+### 3. Linko Admin Dashboard
 - Platform administrative management for users, businesses, subscriptions, usage, and system settings.
 
 ---
 
-## How SaveUs Works
+## How Linko Works
 
 1. **Create your business page**: Add products & services, prices, descriptions, images, and availability.
-2. **Share your link**: Get a permanent link (`saveus.app/business-name`) and printable QR code.
+2. **Share your link**: Get a permanent link (`linko.app/business-name`) and printable QR code.
 3. **Customers connect**: Customers scan or click, see live availability, and order in seconds.

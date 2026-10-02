@@ -1,12 +1,12 @@
-# SaveUS Design System & Style Guide
+# Linko Design System & Style Guide
 
-This document serves as the authoritative visual design and branding reference for the SaveUS application. Subsequent agents and prompt workflows should consult this guide for color palettes, typography, spacing, and UI component standards.
+This document serves as the authoritative visual design and branding reference for the Linko application. Subsequent agents and prompt workflows should consult this guide for color palettes, typography, spacing, and UI component standards.
 
 ---
 
 ## 1. Visual Theme & Design Philosophy
 
-SaveUS uses a **Dark Espresso & Warm Mocha** luxury aesthetic. 
+Linko uses a **Dark Espresso & Warm Mocha** luxury aesthetic. 
 - **Warm Artisanal Atmosphere**: Rather than cold, flat black (`#000000`) or standard white, the app defaults to deep warm charcoal and dark espresso glass.
 - **Controlled Accents**: The warm mocha/terracotta bronze color is reserved for primary call-to-actions, active indicators, and high-priority interactive elements.
 - **Glassmorphic Surface Depth**: Floating cards use elevated warm dark tiles with translucent glass borders (`rgba(255, 255, 255, 0.08)`) and backdrop blur.

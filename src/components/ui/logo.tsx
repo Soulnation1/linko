@@ -1,59 +1,53 @@
 import React from 'react';
+import { Link2, QrCode } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { LogoProps } from '@/types';
 
-export function SaveUsLogo({
+export function LinkoLogo({
   variant = 'full',
   size = 'md',
   className,
 }: LogoProps) {
   const sizeClasses = {
-    sm: { box: 'w-7 h-7 rounded-lg', text: 'text-lg', icon: 'w-4 h-4' },
-    md: { box: 'w-9 h-9 rounded-xl', text: 'text-xl', icon: 'w-5 h-5' },
-    lg: { box: 'w-12 h-12 rounded-2xl', text: 'text-2xl', icon: 'w-7 h-7' },
+    sm: { box: 'size-7 rounded-md', text: 'text-lg', icon: 'size-4' },
+    md: { box: 'size-9 rounded-lg', text: 'text-xl', icon: 'size-5' },
+    lg: { box: 'size-12 rounded-xl', text: 'text-2xl', icon: 'size-7' },
   }[size];
 
   return (
-    <div className={cn('inline-flex items-center gap-2.5 select-none', className)}>
+    <div className={cn('inline-flex items-center gap-2 select-none', className)}>
       {variant !== 'text' && (
         <div
           className={cn(
-            'relative flex items-center justify-center text-white shadow-lg transition-transform hover:scale-105',
-            'bg-gradient-to-tr from-[#7D4F42] via-[#8C5A4C] to-[#D98A5B]',
-            'border border-white/20 shadow-[#8C5A4C]/30',
+            'flex items-center justify-center bg-gradient-to-br from-[#D98A5B] to-[#8C5A4C] text-[#FFF8F2] shadow-sm shadow-black/20',
             sizeClasses.box
           )}
         >
-          {/* Custom Interlocking S + Link SVG Icon */}
-          <svg
-            className={sizeClasses.icon}
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M8.5 14.5A2.5 2.5 0 0 0 11 17h2a2.5 2.5 0 0 0 0-5h-2a2.5 2.5 0 0 1 0-5h2a2.5 2.5 0 0 1 2.5 2.5" />
-            <path d="M12 4.5v1.5" />
-            <path d="M12 18v1.5" />
-          </svg>
+          <span className="relative flex items-center justify-center">
+            <QrCode
+              className={sizeClasses.icon}
+              strokeWidth={2.1}
+              aria-hidden="true"
+            />
+            <span className="absolute flex size-3 items-center justify-center rounded-[3px] bg-[#B76140]">
+              <Link2 className="size-2 text-[#FFF8F2]" strokeWidth={2.5} aria-hidden="true" />
+            </span>
+          </span>
         </div>
       )}
 
       {variant !== 'mark' && (
         <span
           className={cn(
-            'font-serif font-bold tracking-tight text-[#F5EFEA]',
+            'font-serif font-bold text-[#F5EFEA]',
             sizeClasses.text
           )}
         >
-          Save<span className="text-[#D98A5B]">Us</span>
-          <span className="text-[#8C5A4C] inline-block animate-pulse">.</span>
+          Linko
         </span>
       )}
     </div>
   );
 }
 
-export default SaveUsLogo;
+export default LinkoLogo;

@@ -21,12 +21,13 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Buynow",
-  description: "Digital menus and WhatsApp ordering for small businesses",
+  title: "Linko",
+  description:
+    "Simple for businesses. Easy for customers. Digital pages and ordering for local businesses.",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "Buynow",
+    title: "Linko",
   },
 };
 

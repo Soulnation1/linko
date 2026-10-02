@@ -1,8 +1,8 @@
 import type { Business, MenuItem } from '@/types';
 
 export const MOCK_BUSINESS: Business = {
-  id: 'saveus-store',
-  name: 'SaveUS Gourmet & Coffee',
+  id: 'linko-store',
+  name: 'Linko Gourmet & Coffee',
   motto: 'Artisanal breads, craft coffee & fresh daily treats',
   location: 'Lekki Phase 1, Lagos',
   logoUrl: null,
@@ -13,7 +13,7 @@ export const MOCK_BUSINESS: Business = {
 
 export const MOCK_BUSINESSES: Record<string, Business> = {
   default: MOCK_BUSINESS,
-  'saveus-store': MOCK_BUSINESS,
+  'linko-store': MOCK_BUSINESS,
   'menuza-cafe': {
     id: 'menuza-cafe',
     name: 'Soultech Global Ventures',

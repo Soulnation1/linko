@@ -2,9 +2,9 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Buynow",
-    short_name: "Buynow",
-    description: "Digital menus and WhatsApp ordering for small businesses",
+    name: "Linko",
+    short_name: "Linko",
+    description: "Simple for businesses. Easy for customers.",
     start_url: "/",
     display: "standalone",
     background_color: "#F7F3ED",

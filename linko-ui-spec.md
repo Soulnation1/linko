@@ -1,4 +1,4 @@
-# Buynow — Customer UI Build Spec
+# Linko — Customer UI Build Spec
 
 For: coding agent in IDE · Scope: customer-facing flow only (storefront → cart → WhatsApp handoff) · Backend: not yet — use local component state / mock data
 
@@ -19,7 +19,7 @@ The brand is intentionally **vertical-neutral** — this platform serves any sma
 
 Two rules that shape every screen:
 
-1. **The business is the star.** The business's own name/logo/cover leads every screen. The platform wordmark ("Buynow") stays small and secondary.
+1. **The business is the star.** The business's own name/logo/cover leads every screen. The platform wordmark ("Linko") stays small and secondary.
 2. **One accent, spent deliberately.** The accent color (business-configurable) appears only on primary actions and small structural marks — never as a background wash or repeated decoration.
 
 ## 3. Design tokens
