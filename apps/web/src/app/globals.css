@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@theme {
+  --color-espresso-base: #141211;
+  --color-espresso-surface: #221E1C;
+  --color-espresso-card: #25201E;
+  --color-mocha: #8C5A4C;
+  --color-mocha-hover: #9E6756;
+  --color-amber-accent: #D98A5B;
+  --color-cream: #F5EFEA;
+  --color-taupe: #A39890;
+  --color-glass-border: rgba(255, 255, 255, 0.08);
+
+  --color-ivory: #F7F3ED;
+  --color-charcoal: #211D1A;
+  --color-clay: #8C5A4C;
+  --color-olive: #5C6B4F;
+  --color-gold: #E8A93B;
+  --color-sky: #4C7A8C;
+
+  --font-serif: var(--font-fraunces), serif;
+  --font-sans: var(--font-public-sans), sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
+
+  /* Theme semantic mappings for Tailwind v4 */
+  --color-base: var(--bg-base);
+  --color-surface: var(--bg-surface);
+  --color-card: var(--bg-card);
+  --color-element: var(--bg-element);
+  --color-header: var(--bg-header);
+  --color-primary: var(--text-primary);
+  --color-secondary: var(--text-secondary);
+  --color-subtle-border: var(--border-subtle);
+}
+
+:root {
+  --bg-base: #F7F3ED;
+  --bg-surface: #FFFFFF;
+  --bg-card: #FAF7F2;
+  --bg-element: #EFEAE2;
+  --bg-header: rgba(247, 243, 237, 0.88);
+  --text-primary: #211D1A;
+  --text-secondary: #6E6760;
+  --border-subtle: rgba(33, 29, 26, 0.12);
+  --accent-mocha: #8C5A4C;
+  --accent-mocha-hover: #9E6756;
+  --accent-amber: #D98A5B;
+  --color-scheme: light;
+  color-scheme: light;
+}
+
+.dark {
+  --bg-base: #141211;
+  --bg-surface: #221E1C;
+  --bg-card: #25201E;
+  --bg-element: #1A1716;
+  --bg-header: rgba(20, 18, 17, 0.88);
+  --text-primary: #F5EFEA;
+  --text-secondary: #A39890;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --accent-mocha: #8C5A4C;
+  --accent-mocha-hover: #9E6756;
+  --accent-amber: #D98A5B;
+  --color-scheme: dark;
+  color-scheme: dark;
+}
+
+html {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-sans), sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--accent-mocha);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

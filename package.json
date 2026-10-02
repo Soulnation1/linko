@@ -1,44 +1,23 @@
 {
-  "name": "linko",
+  "name": "linko-monorepo",
   "version": "0.1.0",
   "private": true,
-  "bin": {
-    "linko": "./linko.cmd"
-  },
+  "packageManager": "pnpm@11.20.0",
   "scripts": {
-    "dev": "next dev",
-    "linko": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
-  },
-  "dependencies": {
-    "@hookform/resolvers": "^5.9.1",
-    "clsx": "^2.1.1",
-    "framer-motion": "^13.4.4",
-    "lucide-react": "^1.48.0",
-    "next": "16.3.6",
-    "next-pwa": "^5.6.0",
-    "qrcode": "^1.5.4",
-    "react": "19.2.8",
-    "react-dom": "19.2.8",
-    "react-hook-form": "^7.89.0",
-    "sonner": "^2.0.8",
-    "tailwind-merge": "^3.7.0",
-    "zod": "^4.6.5",
-    "zustand": "^5.0.15"
+    "dev": "turbo run dev --filter=@linko/web",
+    "dev:web": "turbo run dev --filter=@linko/web",
+    "dev:mobile": "turbo run dev --filter=@linko/mobile",
+    "web": "pnpm run dev:web",
+    "mobile": "pnpm run dev:mobile",
+    "build": "turbo run build --filter=@linko/web",
+    "build:web": "turbo run build --filter=@linko/web",
+    "start": "pnpm --filter @linko/web start",
+    "lint": "turbo run lint --filter=@linko/web",
+    "lint:web": "turbo run lint --filter=@linko/web",
+    "typecheck": "turbo run typecheck --filter=@linko/web",
+    "typecheck:web": "turbo run typecheck --filter=@linko/web"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/qrcode": "^1.5.6",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.3.6",
-    "prettier": "^3.9.9",
-    "prettier-plugin-tailwindcss": "^0.8.1",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "turbo": "^2.5.0"
   }
 }
