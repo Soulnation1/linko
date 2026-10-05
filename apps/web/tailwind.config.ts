@@ -9,31 +9,24 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        espresso: {
-          base: '#141211',
-          surface: '#221E1C',
-          card: '#25201E',
-          glass: 'rgba(37, 32, 30, 0.70)',
-          border: 'rgba(255, 255, 255, 0.08)',
-        },
-        mocha: {
-          DEFAULT: '#8C5A4C',
-          hover: '#9E6756',
-          accent: '#D98A5B',
-        },
-        cream: '#F5EFEA',
-        taupe: '#A39890',
-
-        // Legacy compatibility aliases
-        ivory: '#141211',
-        charcoal: '#F5EFEA',
-        clay: '#8C5A4C',
-        line: 'rgba(255, 255, 255, 0.08)',
-        muted: '#A39890',
+        indigo: '#4F46E5',
+        'indigo-dark': '#4338CA',
+        ink: '#0F172A',
+        muted: '#64748B',
+        surface: '#F7F8FA',
+        border: '#EAECF0',
+        green: '#16A34A',
+        amber: '#D97706',
+        red: '#DC2626',
+        'indigo-50': '#EEF2FF',
+      },
+      boxShadow: {
+        'elevation-1': '0 1px 3px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.04)',
+        'elevation-2': '0 1px 3px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.04)',
+        'elevation-3': '0 10px 24px rgba(15, 23, 42, 0.12)',
       },
       fontFamily: {
-        serif: ['var(--font-fraunces)', 'serif'],
-        sans: ['var(--font-public-sans)', 'sans-serif'],
+        sans: ['var(--font-inter)', 'sans-serif'],
         mono: ['var(--font-jetbrains-mono)', 'monospace'],
       },
     },

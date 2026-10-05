@@ -7,6 +7,7 @@ export interface BusinessHeaderProps {
   logoUrl?: string | null;
   location?: string;
   accentColor?: string;
+  badgeLabel?: string;
   className?: string;
 }
 

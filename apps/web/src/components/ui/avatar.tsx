@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { cn, getInitials } from '@/lib/utils';
 import type { AvatarProps } from '@/types';
 
@@ -22,9 +23,12 @@ export function Avatar({
       style={{ width: `${size}px`, height: `${size}px` }}
     >
       {src ? (
-        <img
+        <Image
           src={src}
           alt={imageAlt}
+          width={size}
+          height={size}
+          unoptimized
           className="h-full w-full object-cover"
         />
       ) : (

@@ -1,24 +1,27 @@
 $ next build
 ▲ Next.js 16.3.6 (Turbopack)
-✓ Running next.config.ts took 36.2s
+✓ Running next.config.ts took 9.2s
 
   Creating an optimized production build ...
-✓ Compiled successfully in 55s
+✓ Compiled successfully in 34.3s
   Running TypeScript ...
-  Finished TypeScript in 12.8s ...
+  Finished TypeScript in 17.9s ...
   Collecting page data using 7 workers ...
-  Generating static pages using 7 workers (0/6) ...
-  Generating static pages using 7 workers (1/6) 
-  Generating static pages using 7 workers (2/6) 
-  Generating static pages using 7 workers (4/6) 
-✓ Generating static pages using 7 workers (6/6) in 10.3s
+  Generating static pages using 7 workers (0/9) ...
+  Generating static pages using 7 workers (2/9) 
+  Generating static pages using 7 workers (4/9) 
+  Generating static pages using 7 workers (6/9) 
+✓ Generating static pages using 7 workers (9/9) in 2.6s
   Finalizing page optimization ...
 
 Route (app)
 ┌ ○ /
 ├ ○ /_not-found
-├ ○ /manifest.webmanifest
-└ ○ /order-now
+├ ○ /cart
+├ ○ /cart-list
+├ ○ /cart-preview
+├ ○ /complete-order
+└ ○ /manifest.webmanifest
 
 
 ○  (Static)  prerendered as static content

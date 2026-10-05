@@ -2,13 +2,13 @@ import type { Business, MenuItem } from '@/types';
 
 export const MOCK_BUSINESS: Business = {
   id: 'linko-store',
-  name: 'Linko Gourmet & Coffee',
+  name: 'fresh Gourmet & Coffee',
   motto: 'Artisanal breads, craft coffee & fresh daily treats',
   location: 'Lekki Phase 1, Lagos',
   logoUrl: null,
   coverUrl: null,
-  accentColor: '#8C5A4C',
-  whatsappNumber: '2348000000000',
+  accentColor: '#4F46E5',
+  whatsappNumber: '2348143800220',
 };
 
 export const MOCK_BUSINESSES: Record<string, Business> = {
@@ -21,8 +21,23 @@ export const MOCK_BUSINESSES: Record<string, Business> = {
     location: 'Victoria Island, Lagos',
     logoUrl: null,
     coverUrl: null,
-    accentColor: '#8C5A4C',
-    whatsappNumber: '2348011112222',
+    accentColor: '#4F46E5',
+    whatsappNumber: '2348143800220',
+  },
+};
+
+export const MOCK_RETIRED_BUSINESS_LINKS: Record<
+  string,
+  { businessName: string }
+> = {
+  '/order-now': {
+    businessName: MOCK_BUSINESS.name,
+  },
+  '/linko-gourmet-old': {
+    businessName: MOCK_BUSINESS.name,
+  },
+  '/soultech-global-old': {
+    businessName: MOCK_BUSINESSES['menuza-cafe'].name,
   },
 };
 

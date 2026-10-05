@@ -7,7 +7,7 @@ const featuredBusiness: Business = {
   name: 'Luna Coffee',
   motto: 'Fresh brews, fast pickups, and easy ordering.',
   location: 'Downtown Market',
-  whatsappNumber: '+2348000000000',
+  whatsappNumber: '+2348143800220',
   accentColor: '#f97316',
 };
 

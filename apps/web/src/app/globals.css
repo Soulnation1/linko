@@ -1,68 +1,99 @@
 @import "tailwindcss";
 
 @theme {
-  --color-espresso-base: #141211;
-  --color-espresso-surface: #221E1C;
-  --color-espresso-card: #25201E;
-  --color-mocha: #8C5A4C;
-  --color-mocha-hover: #9E6756;
-  --color-amber-accent: #D98A5B;
-  --color-cream: #F5EFEA;
-  --color-taupe: #A39890;
-  --color-glass-border: rgba(255, 255, 255, 0.08);
+  --color-indigo: #4F46E5;
+  --color-indigo-dark: #4338CA;
+  --color-indigo-50: #EEF2FF;
+  --color-ink: #0F172A;
+  --color-muted: #64748B;
+  --color-surface: #F7F8FA;
+  --color-border: #EAECF0;
+  --color-green: #16A34A;
+  --color-amber: #D97706;
+  --color-red: #DC2626;
 
-  --color-ivory: #F7F3ED;
-  --color-charcoal: #211D1A;
-  --color-clay: #8C5A4C;
-  --color-olive: #5C6B4F;
-  --color-gold: #E8A93B;
-  --color-sky: #4C7A8C;
-
-  --font-serif: var(--font-fraunces), serif;
-  --font-sans: var(--font-public-sans), sans-serif;
+  --font-sans: var(--font-inter), sans-serif;
   --font-mono: var(--font-jetbrains-mono), monospace;
-
-  /* Theme semantic mappings for Tailwind v4 */
-  --color-base: var(--bg-base);
-  --color-surface: var(--bg-surface);
-  --color-card: var(--bg-card);
-  --color-element: var(--bg-element);
-  --color-header: var(--bg-header);
-  --color-primary: var(--text-primary);
-  --color-secondary: var(--text-secondary);
-  --color-subtle-border: var(--border-subtle);
 }
 
 :root {
-  --bg-base: #F7F3ED;
+  --bg-base: #F7F8FA;
   --bg-surface: #FFFFFF;
-  --bg-card: #FAF7F2;
-  --bg-element: #EFEAE2;
-  --bg-header: rgba(247, 243, 237, 0.88);
-  --text-primary: #211D1A;
-  --text-secondary: #6E6760;
-  --border-subtle: rgba(33, 29, 26, 0.12);
-  --accent-mocha: #8C5A4C;
-  --accent-mocha-hover: #9E6756;
-  --accent-amber: #D98A5B;
+  --bg-card: #FFFFFF;
+  --bg-element: #F3F4F6;
+  --bg-header: rgba(255, 255, 255, 0.88);
+  --text-primary: #0F172A;
+  --text-secondary: #64748B;
+  --border-subtle: #EAECF0;
+  --accent-indigo: #4F46E5;
+  --accent-text-indigo: #4F46E5;
+  --accent-indigo-dark: #4338CA;
+  --accent-success: #16A34A;
+  --accent-warning: #D97706;
+  --accent-error: #DC2626;
+  --status-error-bg: #FEE2E2;
+  --status-error-text: #B91C1C;
+  --status-success-bg: #DCFCE7;
+  --status-success-text: #15803D;
   --color-scheme: light;
   color-scheme: light;
 }
 
 .dark {
-  --bg-base: #141211;
-  --bg-surface: #221E1C;
-  --bg-card: #25201E;
-  --bg-element: #1A1716;
-  --bg-header: rgba(20, 18, 17, 0.88);
-  --text-primary: #F5EFEA;
-  --text-secondary: #A39890;
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --accent-mocha: #8C5A4C;
-  --accent-mocha-hover: #9E6756;
-  --accent-amber: #D98A5B;
+  --bg-base: #0F172A;
+  --bg-surface: #111827;
+  --bg-card: #111827;
+  --bg-element: #1F2937;
+  --bg-header: rgba(15, 23, 42, 0.86);
+  --text-primary: #E2E8F0;
+  --text-secondary: #94A3B8;
+  --border-subtle: rgba(148, 163, 184, 0.2);
+  --accent-indigo: #818CF8;
+  --accent-text-indigo: #A5B4FC;
+  --accent-indigo-dark: #4338CA;
+  --accent-success: #22C55E;
+  --accent-warning: #F59E0B;
+  --accent-error: #F87171;
+  --status-error-bg: #7F1D1D;
+  --status-error-text: #FECACA;
+  --status-success-bg: #14532D;
+  --status-success-text: #BBF7D0;
   --color-scheme: dark;
   color-scheme: dark;
+}
+
+@utility text-theme-primary {
+  color: var(--text-primary);
+}
+
+@utility text-theme-secondary {
+  color: var(--text-secondary);
+}
+
+@utility text-theme-accent {
+  color: var(--accent-text-indigo);
+}
+
+@utility badge-error {
+  background-color: var(--status-error-bg);
+  color: var(--status-error-text);
+}
+
+@utility badge-success {
+  background-color: var(--status-success-bg);
+  color: var(--status-success-text);
+}
+
+@utility bg-theme-error {
+  background-color: var(--status-error-text);
+}
+
+@utility text-theme-success {
+  color: var(--status-success-text);
+}
+
+@utility bg-theme-success {
+  background-color: var(--status-success-text);
 }
 
 html {
@@ -83,7 +114,7 @@ body {
 }
 
 *:focus-visible {
-  outline: 2px solid var(--accent-mocha);
+  outline: 2px solid var(--accent-indigo);
   outline-offset: 2px;
 }
 

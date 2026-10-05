@@ -1,32 +1,15 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
+import Link from 'next/link';
 import { Minus, Plus, ShoppingBag, ArrowRight } from 'lucide-react';
 import { BusinessHeader } from '@/components/ui/business-header';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
+import { useCart } from '@/components/storefront/cart-provider';
 import { MOCK_BUSINESS, MOCK_MENU_ITEMS } from '@/lib/mock-data';
 
 export default function OrderNowPage() {
-  const [cart, setCart] = useState<Record<string, number>>({});
-
-  const updateQuantity = (itemId: string, delta: number) => {
-    setCart((prev) => {
-      const current = prev[itemId] || 0;
-      const next = Math.max(0, current + delta);
-      if (next === 0) {
-        const { [itemId]: _, ...rest } = prev;
-        return rest;
-      }
-      return { ...prev, [itemId]: next };
-    });
-  };
-
-  const totalItems = Object.values(cart).reduce((sum, qty) => sum + qty, 0);
-
-  const totalPrice = Object.entries(cart).reduce((sum, [id, qty]) => {
-    const item = MOCK_MENU_ITEMS.find((m) => m.id === id);
-    return sum + (item ? item.price * qty : 0);
-  }, 0);
+  const { quantities, itemCount, subtotal, updateQuantity, hydrated } = useCart();
 
   // Group items by category
   const categories = Array.from(
@@ -34,9 +17,9 @@ export default function OrderNowPage() {
   );
 
   return (
-    <main className="min-h-screen bg-[var(--bg-base)] pb-28 font-sans text-[var(--text-primary)] transition-colors duration-250">
+    <main className="min-h-screen bg-[var(--bg-base)] pb-28 font-sans text-theme-primary transition-colors duration-250">
       {/* Cover Banner */}
-      <div className="relative h-32 w-full bg-gradient-to-r from-[#8C5A4C] to-[#221E1C]">
+      <div className="relative h-32 w-full bg-gradient-to-r from-[#4F46E5] to-[#0F172A]">
         <div className="absolute inset-0 bg-black/20" />
         <div className="absolute top-3 right-3 z-20">
           <ThemeToggle />
@@ -45,10 +28,10 @@ export default function OrderNowPage() {
 
       <div className="relative z-10 mx-auto -mt-8 max-w-md space-y-6 px-4">
         {/* Shared Business Identity Header */}
-        <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-4 shadow-xl transition-colors">
+        <div className="space-y-3">
           <BusinessHeader business={MOCK_BUSINESS} />
           {MOCK_BUSINESS.motto && (
-            <p className="mt-2 border-t border-[var(--border-subtle)] pt-2 text-xs text-[var(--text-secondary)] italic">
+            <p className="rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] px-4 py-3 text-xs leading-relaxed text-theme-secondary">
               &quot;{MOCK_BUSINESS.motto}&quot;
             </p>
           )}
@@ -62,20 +45,20 @@ export default function OrderNowPage() {
             );
             return (
               <section key={category} className="space-y-3">
-                <h2 className="text-xs font-bold tracking-wider text-[#D98A5B] uppercase">
+                <h2 className="text-xs font-bold tracking-wider text-theme-accent uppercase">
                   {category}
                 </h2>
 
                 <div className="space-y-3">
                   {items.map((item) => {
-                    const quantity = cart[item.id] || 0;
+                    const quantity = hydrated ? quantities[item.id] || 0 : 0;
                     const isAvailable = item.available;
 
                     return (
                       <div
                         key={item.id}
                         className={`flex items-center justify-between gap-4 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-4 transition-all ${
-                          !isAvailable ? 'opacity-60' : 'hover:border-[var(--accent-mocha)]'
+                          !isAvailable ? '' : 'hover:border-[var(--accent-indigo)]'
                         }`}
                       >
                         {/* Thumbnail / Info */}
@@ -84,21 +67,22 @@ export default function OrderNowPage() {
                             ☕
                           </div>
                           <div className="min-w-0 flex-1">
-                            <h3 className="truncate text-sm font-medium text-[var(--text-primary)]">
+                            <h3 className="truncate text-sm font-medium text-theme-primary">
                               {item.name}
                             </h3>
                             <div className="mt-0.5 flex items-center gap-2">
                               <span
                                 className={`font-mono text-xs font-bold ${
                                   !isAvailable
-                                    ? 'text-[var(--text-secondary)] line-through'
-                                    : 'text-[var(--text-primary)]'
+                                    ? 'text-theme-secondary line-through'
+                                    : 'text-theme-primary'
                                 }`}
                               >
                                 ₦{item.price.toLocaleString()}
                               </span>
                               {!isAvailable && (
-                                <span className="text-[10.5px] font-semibold text-[#D98A5B]">
+                                <span className="badge-error inline-flex rounded-full px-2 py-0.5 text-[10.5px] font-bold">
+                                  <span aria-hidden="true" className="mr-1 inline-block size-1.5 rounded-full bg-theme-error" />
                                   Sold out
                                 </span>
                               )}
@@ -113,19 +97,19 @@ export default function OrderNowPage() {
                               <>
                                 <button
                                   onClick={() => updateQuantity(item.id, -1)}
-                                  className="flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--bg-surface)] text-[var(--text-primary)] transition-colors hover:bg-[var(--bg-card)]"
+                                  className="flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--bg-surface)] text-theme-primary transition-colors hover:bg-[var(--bg-card)]"
                                   aria-label="Decrease quantity"
                                 >
                                   <Minus className="h-3.5 w-3.5" />
                                 </button>
-                                <span className="w-5 text-center font-mono text-xs font-bold text-[var(--text-primary)]">
+                                <span className="w-5 text-center font-mono text-xs font-bold text-theme-primary">
                                   {quantity}
                                 </span>
                               </>
                             )}
                             <button
                               onClick={() => updateQuantity(item.id, 1)}
-                              className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#8C5A4C] text-white shadow-sm transition-colors hover:bg-[#9E6756]"
+                              className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#4F46E5] text-white shadow-sm transition-colors hover:bg-[#4338CA]"
                               aria-label="Increase quantity"
                             >
                               <Plus className="h-3.5 w-3.5" />
@@ -143,19 +127,34 @@ export default function OrderNowPage() {
       </div>
 
       {/* Sticky Bottom Order Bar */}
-      {totalItems > 0 && (
-        <div className="fixed bottom-4 left-1/2 z-50 flex w-[calc(100%-2rem)] max-w-md -translate-x-1/2 cursor-pointer items-center justify-between rounded-2xl bg-[#8C5A4C] p-4 text-white shadow-2xl transition-all hover:bg-[#9E6756]">
-          <div className="flex items-center gap-2">
-            <ShoppingBag className="h-5 w-5" />
-            <span className="text-sm font-medium">
-              {totalItems} item{totalItems > 1 ? 's' : ''} · ₦
-              {totalPrice.toLocaleString()}
+      {hydrated && itemCount > 0 && (
+        <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[var(--border-subtle)] bg-[var(--bg-header)] px-4 pt-3 pb-[max(env(safe-area-inset-bottom),0.75rem)] backdrop-blur-xl">
+          <Link
+            href="/cart-list"
+            className="mx-auto flex w-full max-w-md items-center justify-between rounded-xl bg-[#4F46E5] px-4 py-3.5 text-white shadow-elevation-2 transition-colors hover:bg-[#4338CA]"
+          >
+            <span className="flex min-w-0 items-center gap-2.5">
+              <span className="relative flex size-9 shrink-0 items-center justify-center rounded-lg bg-white/15">
+                <ShoppingBag className="size-4.5" aria-hidden="true" />
+                <span className="absolute -top-1 -right-1 flex size-4 items-center justify-center rounded-full bg-white text-[9px] font-bold text-[#4338CA]">
+                  {itemCount}
+                </span>
+              </span>
+              <span className="min-w-0">
+                <span className="block text-[13px] font-semibold">
+                  Review your order
+                </span>
+                <span className="block text-[11px] text-white/80">
+                  {itemCount} item{itemCount === 1 ? '' : 's'} · ₦
+                  {subtotal.toLocaleString()}
+                </span>
+              </span>
             </span>
-          </div>
-          <div className="flex items-center gap-1 text-sm font-bold">
-            <span>View order</span>
-            <ArrowRight className="h-4 w-4" />
-          </div>
+            <span className="flex shrink-0 items-center gap-1.5 text-[13px] font-semibold">
+              View cart <ArrowRight className="size-4" aria-hidden="true" />
+      
+            </span>
+          </Link>
         </div>
       )}
     </main>

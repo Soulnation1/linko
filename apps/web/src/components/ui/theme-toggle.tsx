@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon, Laptop } from 'lucide-react';
 import { useTheme, type Theme } from '@/components/theme-provider';
@@ -12,14 +12,9 @@ interface ThemeToggleProps {
 }
 
 export function ThemeToggle({ className, variant = 'button' }: ThemeToggleProps) {
-  const { theme, resolvedTheme, setTheme, toggleTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const { theme, resolvedTheme, hydrated, setTheme, toggleTheme } = useTheme();
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
+  if (!hydrated) {
     return (
       <div
         className={cn(
@@ -53,8 +48,8 @@ export function ThemeToggle({ className, variant = 'button' }: ThemeToggleProps)
               className={cn(
                 'relative flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-medium transition-all',
                 isActive
-                  ? 'bg-[var(--accent-mocha)] text-white shadow-sm'
-                  : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                  ? 'bg-[#4F46E5] text-white shadow-sm'
+                  : 'text-theme-secondary hover:text-theme-primary'
               )}
               aria-label={`Set ${label} theme`}
             >
@@ -74,7 +69,7 @@ export function ThemeToggle({ className, variant = 'button' }: ThemeToggleProps)
         whileTap={{ scale: 0.92 }}
         onClick={toggleTheme}
         className={cn(
-          'fixed bottom-6 left-6 z-50 flex size-12 items-center justify-center rounded-full border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-primary)] shadow-2xl backdrop-blur-md transition-colors hover:border-[var(--accent-mocha)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-mocha)]',
+          'fixed bottom-6 left-6 z-50 flex size-12 items-center justify-center rounded-full border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-theme-primary shadow-2xl backdrop-blur-md transition-colors hover:border-[var(--accent-indigo)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-indigo)]',
           className
         )}
         aria-label={`Switch to ${resolvedTheme === 'dark' ? 'light' : 'dark'} mode`}
@@ -89,9 +84,9 @@ export function ThemeToggle({ className, variant = 'button' }: ThemeToggleProps)
             transition={{ duration: 0.22, ease: 'easeInOut' }}
           >
             {resolvedTheme === 'dark' ? (
-              <Sun className="size-5 text-[#D98A5B]" />
+              <Sun className="size-5 text-theme-accent" />
             ) : (
-              <Moon className="size-5 text-[#8C5A4C]" />
+              <Moon className="size-5 text-theme-accent" />
             )}
           </motion.div>
         </AnimatePresence>
@@ -105,7 +100,7 @@ export function ThemeToggle({ className, variant = 'button' }: ThemeToggleProps)
       whileTap={{ scale: 0.95 }}
       onClick={toggleTheme}
       className={cn(
-        'relative flex size-9 items-center justify-center rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-primary)] shadow-sm transition-colors hover:border-[var(--accent-mocha)] hover:bg-[var(--bg-card)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-mocha)]',
+        'relative flex size-9 items-center justify-center rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-theme-primary shadow-sm transition-colors hover:border-[var(--accent-indigo)] hover:bg-[var(--bg-card)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-indigo)]',
         className
       )}
       aria-label={`Switch to ${resolvedTheme === 'dark' ? 'light' : 'dark'} mode`}
@@ -120,9 +115,9 @@ export function ThemeToggle({ className, variant = 'button' }: ThemeToggleProps)
           transition={{ duration: 0.2 }}
         >
           {resolvedTheme === 'dark' ? (
-            <Sun className="size-4.5 text-[#D98A5B]" />
+            <Sun className="size-4.5 text-theme-accent" />
           ) : (
-            <Moon className="size-4.5 text-[#8C5A4C]" />
+            <Moon className="size-4.5 text-theme-accent" />
           )}
         </motion.div>
       </AnimatePresence>

@@ -19,7 +19,7 @@ export function LinkoLogo({
       {variant !== 'text' && (
         <div
           className={cn(
-            'flex items-center justify-center bg-gradient-to-br from-[#D98A5B] to-[#8C5A4C] text-[#FFF8F2] shadow-sm shadow-black/20',
+            'flex items-center justify-center bg-gradient-to-br from-[#4F46E5] to-[#4338CA] text-white shadow-sm shadow-indigo-500/20',
             sizeClasses.box
           )}
         >
@@ -39,7 +39,7 @@ export function LinkoLogo({
       {variant !== 'mark' && (
         <span
           className={cn(
-            'font-serif font-bold text-[var(--text-primary)] transition-colors',
+            'font-sans font-bold text-theme-primary transition-colors',
             sizeClasses.text
           )}
         >

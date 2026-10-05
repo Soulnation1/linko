@@ -9,15 +9,13 @@ import {
   QrCode,
   Share2,
   Smartphone,
-  Sparkles,
-  MessageCircle,
+  LinkIcon,
   Scissors,
   Camera,
   Wrench,
   Shirt,
   Utensils,
   Check,
-  Building2,
   Download,
 } from 'lucide-react';
 import { LinkoLogo } from '@/components/ui/logo';
@@ -55,7 +53,7 @@ export default function LinkoLandingPage() {
   >('day');
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[var(--bg-base)] font-sans text-[var(--text-primary)] transition-colors duration-250 selection:bg-[#8C5A4C] selection:text-white">
+    <div className="min-h-screen overflow-x-hidden bg-[var(--bg-base)] font-sans text-theme-primary transition-colors duration-250 selection:bg-[#4F46E5] selection:text-white">
       {/* 1. Header / Navigation (Fixed Top Bar) */}
       <header className="fixed top-0 right-0 left-0 z-50 border-b border-[var(--border-subtle)] bg-[var(--bg-header)] backdrop-blur-md transition-colors duration-250">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -63,26 +61,29 @@ export default function LinkoLandingPage() {
             <LinkoLogo size="md" />
           </Link>
 
-          <nav className="hidden items-center gap-8 text-sm text-[var(--text-secondary)] md:flex">
+          <nav className="hidden items-center gap-8 text-sm text-theme-secondary md:flex">
             <a
               href="#how-it-works"
-              className="transition-colors hover:text-[var(--text-primary)]"
+              className="transition-colors hover:text-theme-primary"
             >
               How It Works
             </a>
             <a
               href="#customer-experience"
-              className="transition-colors hover:text-[var(--text-primary)]"
+              className="transition-colors hover:text-theme-primary"
             >
               Customer View
             </a>
             <a
               href="#business-experience"
-              className="transition-colors hover:text-[var(--text-primary)]"
+              className="transition-colors hover:text-theme-primary"
             >
               Business Workspace
             </a>
-            <a href="#use-cases" className="transition-colors hover:text-[var(--text-primary)]">
+            <a
+              href="#use-cases"
+              className="transition-colors hover:text-theme-primary"
+            >
               Use Cases
             </a>
           </nav>
@@ -90,8 +91,8 @@ export default function LinkoLandingPage() {
           <div className="flex items-center gap-3">
             <ThemeToggle />
             <Link
-              href="/order-now"
-              className="hidden px-3 py-2 text-xs text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)] sm:block sm:text-sm"
+              href="/cart"
+              className="hidden px-3 py-2 text-xs text-theme-secondary transition-colors hover:text-theme-primary sm:block sm:text-sm"
             >
               Demo Storefront
             </Link>
@@ -99,7 +100,7 @@ export default function LinkoLandingPage() {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               href="#get-started"
-              className="rounded-xl bg-[#8C5A4C] px-4 py-2.5 text-xs font-medium text-white shadow-md shadow-[#8C5A4C]/20 transition-all hover:bg-[#9E6756] sm:text-sm"
+              className="rounded-xl bg-[#4F46E5] px-4 py-2.5 text-xs font-medium text-white shadow-md shadow-[#4F46E5]/20 transition-all hover:bg-[#4338CA] sm:text-sm"
             >
               Get Started
             </motion.a>
@@ -120,7 +121,7 @@ export default function LinkoLandingPage() {
             repeat: Infinity,
             ease: 'easeInOut',
           }}
-          className="pointer-events-none absolute top-1/4 left-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#8C5A4C]/20 blur-[140px]"
+          className="pointer-events-none absolute top-1/4 left-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#4F46E5]/15 blur-[140px]"
         />
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -131,24 +132,24 @@ export default function LinkoLandingPage() {
             className="mx-auto max-w-3xl space-y-6 text-center"
           >
             <motion.div variants={fadeInUp} className="inline-block">
-              <span className="inline-flex max-w-full flex-wrap items-center justify-center gap-2 rounded-full border border-[#8C5A4C]/30 bg-[#8C5A4C]/20 px-4 py-1.5 text-center font-mono text-xs tracking-wider text-[#D98A5B]">
-                <Sparkles className="h-3.5 w-3.5" /> Linko — Simple for
+              <span className="inline-flex max-w-full flex-wrap items-center justify-center gap-2 rounded-full border border-[#4F46E5]/30 bg-[#4F46E5]/10 px-4 py-1.5 text-center font-mono text-xs tracking-wider text-theme-accent">
+                <LinkIcon className="h-3.5 w-3.5" /> Linko — Simple for
                 businesses. Easy for customers.
               </span>
             </motion.div>
 
             <motion.h1
               variants={fadeInUp}
-              className="font-serif text-4xl leading-[1.1] font-bold tracking-tight text-[var(--text-primary)] sm:text-6xl lg:text-7xl"
+              className="font-sans text-4xl leading-[1.1] font-bold tracking-tight text-theme-primary sm:text-6xl lg:text-7xl"
             >
               Stop answering the{' '}
-              <span className="font-normal text-[#D98A5B] italic">same</span>{' '}
+              <span className="font-normal text-theme-accent italic">same</span>{' '}
               questions.
             </motion.h1>
 
             <motion.p
               variants={fadeInUp}
-              className="mx-auto max-w-2xl text-base leading-relaxed text-[var(--text-secondary)] sm:text-lg md:text-xl"
+              className="mx-auto max-w-2xl text-base leading-relaxed text-theme-secondary sm:text-lg md:text-xl"
             >
               Give your customers one simple link to see what you offer, check
               prices and availability, and get in touch — while you manage
@@ -163,7 +164,7 @@ export default function LinkoLandingPage() {
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 href="#get-started"
-                className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#8C5A4C] px-8 py-3.5 text-base font-medium text-white shadow-xl shadow-[#8C5A4C]/25 transition-all hover:bg-[#9E6756] sm:w-auto"
+                className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#4F46E5] px-8 py-3.5 text-base font-medium text-white shadow-xl shadow-[#4F46E5]/20 transition-all hover:bg-[#4338CA] sm:w-auto"
               >
                 Get Started Free <ArrowRight className="h-4 w-4" />
               </motion.a>
@@ -171,7 +172,7 @@ export default function LinkoLandingPage() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 href="#how-it-works"
-                className="flex w-full items-center justify-center gap-2 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] px-8 py-3.5 text-base font-medium text-[var(--text-primary)] transition-all hover:bg-[var(--bg-card)] sm:w-auto"
+                className="flex w-full items-center justify-center gap-2 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] px-8 py-3.5 text-base font-medium text-theme-primary transition-all hover:bg-[var(--bg-card)] sm:w-auto"
               >
                 See How It Works
               </motion.a>
@@ -180,14 +181,14 @@ export default function LinkoLandingPage() {
             {/* Quick trust metrics */}
             <motion.div
               variants={fadeInUp}
-              className="flex items-center justify-center gap-6 pt-6 text-xs text-[var(--text-secondary)]"
+              className="flex items-center justify-center gap-6 pt-6 text-xs text-theme-secondary"
             >
               <span className="flex items-center gap-1.5">
-                <Check className="h-4 w-4 text-[#8C5A4C]" /> Zero customer app
+                <Check className="h-4 w-4 text-theme-accent" /> Zero customer app
                 installs
               </span>
               <span className="flex items-center gap-1.5">
-                <Check className="h-4 w-4 text-[#8C5A4C]" /> Instant QR & link
+                <Check className="h-4 w-4 text-theme-accent" /> Instant QR & link
                 share
               </span>
             </motion.div>
@@ -212,7 +213,7 @@ export default function LinkoLandingPage() {
                   <div className="h-3 w-3 rounded-full bg-yellow-500/80" />
                   <div className="h-3 w-3 rounded-full bg-green-500/80" />
                 </div>
-                <span className="rounded-full border border-[#8C5A4C]/30 bg-[#8C5A4C]/20 px-2.5 py-0.5 font-mono text-[11px] text-[#D98A5B]">
+                <span className="rounded-full border border-[#4F46E5]/30 bg-[#4F46E5]/20 px-2.5 py-0.5 font-mono text-[11px] text-theme-accent">
                   linko.app/chuks-kitchen
                 </span>
               </div>
@@ -220,16 +221,22 @@ export default function LinkoLandingPage() {
               {/* Customer View */}
               <div className="space-y-4">
                 <div className="flex items-center gap-3 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-3.5">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#8C5A4C] font-serif text-lg font-bold text-white">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#4F46E5] font-sans text-lg font-bold text-white">
                     CK
                   </div>
                   <div>
-                    <h4 className="font-serif text-base font-bold text-[var(--text-primary)]">
+                    <h4 className="font-sans text-base font-bold text-theme-primary">
                       Chuks Kitchen
                     </h4>
-                    <p className="flex items-center gap-1 text-xs text-[var(--text-secondary)]">
+                    <p className="flex items-center gap-1 text-xs text-theme-secondary">
                       <span>Lekki Phase 1, Lagos</span> ·{' '}
-                      <span className="text-[#D98A5B]">Open Now</span>
+                      <span className="inline-flex items-center gap-1 text-theme-success">
+                        <span
+                          aria-hidden="true"
+                          className="size-1.5 rounded-full bg-theme-success"
+                        />
+                        Open Now
+                      </span>
                     </p>
                   </div>
                 </div>
@@ -241,14 +248,15 @@ export default function LinkoLandingPage() {
                     className="flex items-center justify-between rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-3"
                   >
                     <div>
-                      <h5 className="text-xs font-medium text-[var(--text-primary)]">
+                      <h5 className="text-xs font-medium text-theme-primary">
                         Jollof Rice & Chicken
                       </h5>
-                      <span className="font-mono text-xs font-bold text-[var(--text-primary)]">
+                      <span className="font-mono text-xs font-bold text-theme-primary">
                         ₦3,000
                       </span>
                     </div>
-                    <span className="rounded-md bg-[#8C5A4C]/20 px-2 py-0.5 font-mono text-[10px] text-[#D98A5B]">
+                    <span className="badge-success inline-flex items-center gap-1 rounded-full px-2 py-0.5 font-mono text-[10px] font-bold">
+                      <span aria-hidden="true" className="size-1.5 rounded-full bg-theme-success" />
                       Available
                     </span>
                   </motion.div>
@@ -258,28 +266,30 @@ export default function LinkoLandingPage() {
                     className="flex items-center justify-between rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-3"
                   >
                     <div>
-                      <h5 className="text-xs font-medium text-[var(--text-primary)]">
+                      <h5 className="text-xs font-medium text-theme-primary">
                         Chicken & Chips
                       </h5>
-                      <span className="font-mono text-xs font-bold text-[var(--text-primary)]">
+                      <span className="font-mono text-xs font-bold text-theme-primary">
                         ₦3,500
                       </span>
                     </div>
-                    <span className="rounded-md bg-[#8C5A4C]/20 px-2 py-0.5 font-mono text-[10px] text-[#D98A5B]">
+                    <span className="badge-success inline-flex items-center gap-1 rounded-full px-2 py-0.5 font-mono text-[10px] font-bold">
+                      <span aria-hidden="true" className="size-1.5 rounded-full bg-theme-success" />
                       Available
                     </span>
                   </motion.div>
 
-                  <div className="flex items-center justify-between rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-3 opacity-50">
+                  <div                   className="flex items-center justify-between rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-3">
                     <div>
-                      <h5 className="text-xs font-medium text-[var(--text-primary)]">
+                      <h5 className="text-xs font-medium text-theme-primary">
                         Fresh Juice
                       </h5>
-                      <span className="font-mono text-xs text-[var(--text-secondary)] line-through">
+                      <span className="font-mono text-xs text-theme-secondary line-through">
                         ₦1,500
                       </span>
                     </div>
-                    <span className="rounded-md bg-red-500/20 px-2 py-0.5 font-mono text-[10px] text-red-400">
+                    <span className="badge-error inline-flex items-center gap-1 rounded-full px-2 py-0.5 font-mono text-[10px] font-bold">
+                      <span aria-hidden="true" className="size-1.5 rounded-full bg-theme-error" />
                       Sold out
                     </span>
                   </div>
@@ -288,7 +298,7 @@ export default function LinkoLandingPage() {
                 {/* Order Summary Bar */}
                 <motion.div
                   whileHover={{ scale: 1.02 }}
-                  className="flex cursor-pointer items-center justify-between rounded-xl bg-[#8C5A4C] p-3 text-white shadow-lg"
+                  className="flex cursor-pointer items-center justify-between rounded-xl bg-[#4F46E5] p-3 text-white shadow-lg"
                 >
                   <span className="text-xs font-medium">1 item · ₦3,000</span>
                   <span className="flex items-center gap-1 text-xs font-bold">
@@ -306,12 +316,14 @@ export default function LinkoLandingPage() {
             >
               <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-3">
                 <div>
-                  <h4 className="font-serif text-base font-bold text-[var(--text-primary)]">
+                  <h4 className="font-sans text-base font-bold text-theme-primary">
                     Welcome back, Chuks Kitchen 👋
                   </h4>
-                  <p className="text-xs text-[var(--text-secondary)]">Business Workspace</p>
+                  <p className="text-xs text-theme-secondary">
+                    Business Workspace
+                  </p>
                 </div>
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#8C5A4C]/20 text-xs font-bold text-[#D98A5B]">
+                <div className="badge-success flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold">
                   LIVE
                 </div>
               </div>
@@ -319,17 +331,17 @@ export default function LinkoLandingPage() {
               {/* Metric Cards */}
               <div className="grid grid-cols-2 gap-3">
                 <div className="flex flex-col justify-between rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-element)] p-3">
-                  <span className="font-mono text-[10.5px] text-[var(--text-secondary)] uppercase">
+                  <span className="font-mono text-[10.5px] text-theme-secondary uppercase">
                     Total Products
                   </span>
-                  <p className="mt-1 font-mono text-xl font-bold text-[var(--text-primary)]">
+                  <p className="mt-1 font-mono text-xl font-bold text-theme-primary">
                     24 Items
                   </p>
                 </div>
 
                 <div className="space-y-1 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-element)] p-3">
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-[10.5px] text-[var(--text-secondary)] uppercase">
+                    <span className="font-mono text-[10.5px] text-theme-secondary uppercase">
                       Orders Count
                     </span>
                     <div className="flex items-center gap-1 rounded border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-0.5 font-mono text-[9px]">
@@ -337,8 +349,8 @@ export default function LinkoLandingPage() {
                         onClick={() => setOrderTimeFilter('day')}
                         className={`rounded px-1.5 py-0.5 transition-colors ${
                           orderTimeFilter === 'day'
-                            ? 'bg-[#8C5A4C] font-bold text-white'
-                            : 'text-[var(--text-secondary)]'
+                            ? 'bg-[#4F46E5] font-bold text-white'
+                            : 'text-theme-secondary'
                         }`}
                       >
                         Day
@@ -347,8 +359,8 @@ export default function LinkoLandingPage() {
                         onClick={() => setOrderTimeFilter('week')}
                         className={`rounded px-1.5 py-0.5 transition-colors ${
                           orderTimeFilter === 'week'
-                            ? 'bg-[#8C5A4C] font-bold text-white'
-                            : 'text-[var(--text-secondary)]'
+                            ? 'bg-[#4F46E5] font-bold text-white'
+                            : 'text-theme-secondary'
                         }`}
                       >
                         Week
@@ -357,8 +369,8 @@ export default function LinkoLandingPage() {
                         onClick={() => setOrderTimeFilter('month')}
                         className={`rounded px-1.5 py-0.5 transition-colors ${
                           orderTimeFilter === 'month'
-                            ? 'bg-[#8C5A4C] font-bold text-white'
-                            : 'text-[var(--text-secondary)]'
+                            ? 'bg-[#4F46E5] font-bold text-white'
+                            : 'text-theme-secondary'
                         }`}
                       >
                         Month
@@ -366,12 +378,12 @@ export default function LinkoLandingPage() {
                     </div>
                   </div>
                   <div className="flex items-baseline justify-between pt-0.5">
-                    <p className="font-mono text-xl font-bold text-[#D98A5B]">
+                    <p className="font-mono text-xl font-bold text-theme-accent">
                       {orderTimeFilter === 'day' && '14'}
                       {orderTimeFilter === 'week' && '86'}
                       {orderTimeFilter === 'month' && '340'}
                     </p>
-                    <span className="font-mono text-[10.5px] text-[var(--text-secondary)]">
+                    <span className="font-mono text-[10.5px] text-theme-secondary">
                       {orderTimeFilter === 'day' && '₦42,000'}
                       {orderTimeFilter === 'week' && '₦258,000'}
                       {orderTimeFilter === 'month' && '₦1,020,000'}
@@ -382,12 +394,14 @@ export default function LinkoLandingPage() {
 
               <div className="space-y-2 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-element)] p-3.5">
                 <div className="flex items-center justify-between text-xs">
-                  <span className="text-[var(--text-secondary)]">Your Shareable Link</span>
-                  <button className="flex items-center gap-1 text-[11px] text-[#D98A5B] hover:underline">
+                  <span className="text-theme-secondary">
+                    Your Shareable Link
+                  </span>
+                  <button className="flex items-center gap-1 text-[11px] text-theme-accent hover:underline">
                     <Share2 className="h-3 w-3" /> Copy
                   </button>
                 </div>
-                <div className="truncate rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-2 font-mono text-xs text-[var(--text-primary)]">
+                <div className="truncate rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-2 font-mono text-xs text-theme-primary">
                   linko.app/chuks-kitchen
                 </div>
               </div>
@@ -408,19 +422,19 @@ export default function LinkoLandingPage() {
           >
             <motion.span
               variants={fadeInUp}
-              className="font-mono text-xs tracking-wider text-[#D98A5B] uppercase"
+              className="font-mono text-xs tracking-wider text-theme-accent uppercase"
             >
               The Pain Point
             </motion.span>
             <motion.h2
               variants={fadeInUp}
-              className="font-serif text-3xl font-bold text-[var(--text-primary)] sm:text-4xl"
+              className="font-sans text-3xl font-bold text-theme-primary sm:text-4xl"
             >
               The frustrating traditional back-and-forth
             </motion.h2>
             <motion.p
               variants={fadeInUp}
-              className="text-sm text-[var(--text-secondary)] sm:text-base"
+              className="text-sm text-theme-secondary sm:text-base"
             >
               Businesses spend hours answering the exact same questions every
               day across chat apps.
@@ -437,10 +451,10 @@ export default function LinkoLandingPage() {
               className="space-y-4 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 shadow-xl lg:col-span-5"
             >
               <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-3">
-                <h3 className="flex items-center gap-1.5 font-serif text-sm font-bold text-red-400">
+                <h3 className="flex items-center gap-1.5 font-sans text-sm font-bold text-red-400">
                   <span>❌ Traditional Messaging Chaos</span>
                 </h3>
-                <span className="rounded bg-[var(--bg-element)] px-2 py-0.5 font-mono text-[10px] text-[var(--text-secondary)]">
+                <span className="rounded bg-[var(--bg-element)] px-2 py-0.5 font-mono text-[10px] text-theme-secondary">
                   ~15 mins wasted
                 </span>
               </div>
@@ -450,7 +464,7 @@ export default function LinkoLandingPage() {
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 }}
-                  className="max-w-[85%] rounded-xl bg-[var(--bg-element)] p-3 text-[var(--text-primary)]"
+                  className="max-w-[85%] rounded-xl bg-[var(--bg-element)] p-3 text-theme-primary"
                 >
                   &quot;Hi, how much is the chicken?&quot;
                 </motion.div>
@@ -458,7 +472,7 @@ export default function LinkoLandingPage() {
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="ml-auto max-w-[85%] rounded-xl border border-[#8C5A4C]/40 bg-[#8C5A4C]/30 p-3 text-right text-[var(--text-primary)]"
+                  className="ml-auto max-w-[85%] rounded-xl border border-[#4F46E5]/40 bg-[#4F46E5]/30 p-3 text-right text-theme-primary"
                 >
                   &quot;₦3,000.&quot;
                 </motion.div>
@@ -466,7 +480,7 @@ export default function LinkoLandingPage() {
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
-                  className="max-w-[85%] rounded-xl bg-[var(--bg-element)] p-3 text-[var(--text-primary)]"
+                  className="max-w-[85%] rounded-xl bg-[var(--bg-element)] p-3 text-theme-primary"
                 >
                   &quot;Is it available today?&quot;
                 </motion.div>
@@ -474,7 +488,7 @@ export default function LinkoLandingPage() {
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
-                  className="ml-auto max-w-[85%] rounded-xl border border-[#8C5A4C]/40 bg-[#8C5A4C]/30 p-3 text-right text-[var(--text-primary)]"
+                  className="ml-auto max-w-[85%] rounded-xl border border-[#4F46E5]/40 bg-[#4F46E5]/30 p-3 text-right text-theme-primary"
                 >
                   &quot;Yes it is.&quot;
                 </motion.div>
@@ -482,11 +496,11 @@ export default function LinkoLandingPage() {
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
-                  className="max-w-[85%] rounded-xl bg-[var(--bg-element)] p-3 text-[var(--text-primary)]"
+                  className="max-w-[85%] rounded-xl bg-[var(--bg-element)] p-3 text-theme-primary"
                 >
                   &quot;Okay how do I place my order?&quot;
                 </motion.div>
-                <p className="pt-2 text-center text-[11px] text-[var(--text-secondary)] italic">
+                <p className="pt-2 text-center text-[11px] text-theme-secondary italic">
                   Repetitive manual questions for every single customer.
                 </p>
               </div>
@@ -498,14 +512,14 @@ export default function LinkoLandingPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="space-y-5 rounded-2xl border border-[#8C5A4C]/40 bg-gradient-to-br from-[#8C5A4C]/20 to-[var(--bg-surface)] p-6 shadow-2xl lg:col-span-7"
+              className="space-y-5 rounded-2xl border border-[#4F46E5]/40 bg-gradient-to-br from-[#4F46E5]/20 to-[var(--bg-surface)] p-6 shadow-2xl lg:col-span-7"
             >
               <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-3">
-                <h3 className="flex items-center gap-2 font-serif text-base font-bold text-[var(--text-primary)]">
-                  <CheckCircle2 className="h-5 w-5 text-[#D98A5B]" /> The Linko
+                <h3 className="flex items-center gap-2 font-sans text-base font-bold text-theme-primary">
+                  <CheckCircle2 className="h-5 w-5 text-theme-accent" /> The Linko
                   Solution Flow
                 </h3>
-                <span className="rounded-full border border-[#8C5A4C]/40 bg-[#8C5A4C]/30 px-2.5 py-0.5 font-mono text-[10px] text-[#D98A5B]">
+                <span className="rounded-full border border-[#4F46E5]/40 bg-[#4F46E5]/30 px-2.5 py-0.5 font-mono text-[10px] text-theme-accent">
                   Instant & Frictionless
                 </span>
               </div>
@@ -514,15 +528,15 @@ export default function LinkoLandingPage() {
               <div className="space-y-3 text-xs">
                 {/* Step 1 & 2 Chat preview */}
                 <div className="space-y-2 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-base)]/80 p-3.5">
-                  <div className="mb-1 flex items-center justify-between font-mono text-[11px] text-[#D98A5B]">
+                  <div className="mb-1 flex items-center justify-between font-mono text-[11px] text-theme-accent">
                     <span>1. Customer Message & Auto-Response</span>
                   </div>
-                  <div className="max-w-[80%] rounded-lg bg-[var(--bg-element)] p-2.5 text-[var(--text-primary)]">
+                  <div className="max-w-[80%] rounded-lg bg-[var(--bg-element)] p-2.5 text-theme-primary">
                     &quot;Hi&quot;
                   </div>
-                  <div className="ml-auto max-w-[85%] rounded-lg border border-[#8C5A4C]/50 bg-[#8C5A4C]/40 p-2.5 text-right text-[var(--text-primary)]">
+                  <div className="ml-auto max-w-[85%] rounded-lg border border-[#4F46E5]/50 bg-[#4F46E5]/40 p-2.5 text-right text-theme-primary">
                     &quot;Hi! Click this link to check what we have today:{' '}
-                    <span className="font-mono text-[#D98A5B] underline">
+                    <span className="font-mono text-theme-accent underline">
                       linko.app/chuks-kitchen
                     </span>
                     &quot;
@@ -531,16 +545,16 @@ export default function LinkoLandingPage() {
 
                 {/* Step 3 & 4 Menu selection */}
                 <div className="space-y-2 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-base)]/80 p-3.5">
-                  <div className="mb-1 flex items-center justify-between font-mono text-[11px] text-[#D98A5B]">
+                  <div className="mb-1 flex items-center justify-between font-mono text-[11px] text-theme-accent">
                     <span>2. Customer Opens Link & Selects Products</span>
                   </div>
-                  <p className="text-[var(--text-secondary)]">
+                  <p className="text-theme-secondary">
                     Customer lands on{' '}
-                    <span className="font-semibold text-[var(--text-primary)]">
+                    <span className="font-semibold text-theme-primary">
                       Chuks Kitchen
                     </span>{' '}
                     storefront, checks live availability, and selects{' '}
-                    <span className="font-semibold text-[var(--text-primary)]">
+                    <span className="font-semibold text-theme-primary">
                       2 × Jollof Rice & Chicken
                     </span>
                     .
@@ -549,12 +563,12 @@ export default function LinkoLandingPage() {
 
                 {/* Step 5 & 6 Order preview & WhatsApp button */}
                 <div className="space-y-2 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-base)]/80 p-3.5">
-                  <div className="mb-1 flex items-center justify-between font-mono text-[11px] text-[#D98A5B]">
+                  <div className="mb-1 flex items-center justify-between font-mono text-[11px] text-theme-accent">
                     <span>3. Pre-formatted Order & WhatsApp CTA</span>
                   </div>
-                  <div className="rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-element)] p-2.5 font-mono text-[11px] text-[var(--text-primary)]">
-                    &quot;Hi Chuks Kitchen, I&apos;d like to order: 2 × Jollof Rice &
-                    Chicken — ₦6,000. Total: ₦6,000&quot;
+                  <div className="rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-element)] p-2.5 font-mono text-[11px] text-theme-primary">
+                    &quot;Hi Chuks Kitchen, I&apos;d like to order: 2 × Jollof
+                    Rice & Chicken — ₦6,000. Total: ₦6,000&quot;
                   </div>
                   <button className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#25D366] px-3 py-2.5 text-xs font-bold text-black transition-colors hover:bg-[#20bd5a]">
                     Continue on WhatsApp
@@ -562,11 +576,11 @@ export default function LinkoLandingPage() {
                 </div>
 
                 {/* Step 7 Vendor reply */}
-                <div className="flex items-center justify-between rounded-xl border border-[#8C5A4C]/40 bg-[#8C5A4C]/20 p-3">
-                  <span className="font-medium text-[var(--text-primary)]">
+                <div className="flex items-center justify-between rounded-xl border border-[#4F46E5]/40 bg-[#4F46E5]/20 p-3">
+                  <span className="font-medium text-theme-primary">
                     4. Vendor replies with Account Details & completes order!
                   </span>
-                  <Check className="h-4 w-4 flex-shrink-0 text-[#D98A5B]" />
+                  <Check className="h-4 w-4 flex-shrink-0 text-theme-accent" />
                 </div>
               </div>
             </motion.div>
@@ -575,7 +589,10 @@ export default function LinkoLandingPage() {
       </section>
 
       {/* 4. How It Works (3 Steps) */}
-      <section id="how-it-works" className="border-b border-[var(--border-subtle)] py-20">
+      <section
+        id="how-it-works"
+        className="border-b border-[var(--border-subtle)] py-20"
+      >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -586,19 +603,19 @@ export default function LinkoLandingPage() {
           >
             <motion.span
               variants={fadeInUp}
-              className="font-mono text-xs tracking-wider text-[#D98A5B] uppercase"
+              className="font-mono text-xs tracking-wider text-theme-accent uppercase"
             >
               Simple Process
             </motion.span>
             <motion.h2
               variants={fadeInUp}
-              className="font-serif text-3xl font-bold text-[var(--text-primary)] sm:text-5xl"
+              className="font-sans text-3xl font-bold text-theme-primary sm:text-5xl"
             >
               How Linko Works
             </motion.h2>
             <motion.p
               variants={fadeInUp}
-              className="text-sm text-[var(--text-secondary)] sm:text-base"
+              className="text-sm text-theme-secondary sm:text-base"
             >
               Get your business up and running in three frictionless steps.
             </motion.p>
@@ -612,15 +629,15 @@ export default function LinkoLandingPage() {
               viewport={{ once: true }}
               transition={{ delay: 0.1, duration: 0.5 }}
               whileHover={{ y: -8 }}
-              className="space-y-4 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 shadow-xl transition-all hover:border-[#8C5A4C]/50"
+              className="space-y-4 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 shadow-xl transition-all hover:border-[#4F46E5]/50"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#8C5A4C]/30 bg-[#8C5A4C]/20 font-mono text-xl font-bold text-[#D98A5B]">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#4F46E5]/30 bg-[#4F46E5]/20 font-mono text-xl font-bold text-theme-accent">
                 1
               </div>
-              <h3 className="font-serif text-lg font-bold text-[var(--text-primary)]">
+              <h3 className="font-sans text-lg font-bold text-theme-primary">
                 Create your business page
               </h3>
-              <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
+              <p className="text-sm leading-relaxed text-theme-secondary">
                 Add your products & services, prices, descriptions, images, and
                 mark items as available or sold out in seconds.
               </p>
@@ -633,15 +650,15 @@ export default function LinkoLandingPage() {
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.5 }}
               whileHover={{ y: -8 }}
-              className="space-y-4 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 shadow-xl transition-all hover:border-[#8C5A4C]/50"
+              className="space-y-4 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 shadow-xl transition-all hover:border-[#4F46E5]/50"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#8C5A4C]/30 bg-[#8C5A4C]/20 font-mono text-xl font-bold text-[#D98A5B]">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#4F46E5]/30 bg-[#4F46E5]/20 font-mono text-xl font-bold text-theme-accent">
                 2
               </div>
-              <h3 className="font-serif text-lg font-bold text-[var(--text-primary)]">
+              <h3 className="font-sans text-lg font-bold text-theme-primary">
                 Share your link
               </h3>
-              <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
+              <p className="text-sm leading-relaxed text-theme-secondary">
                 Get a permanent shareable link (`linko.app/your-name`) and a
                 printable QR code for your store.
               </p>
@@ -654,15 +671,15 @@ export default function LinkoLandingPage() {
               viewport={{ once: true }}
               transition={{ delay: 0.3, duration: 0.5 }}
               whileHover={{ y: -8 }}
-              className="space-y-4 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 shadow-xl transition-all hover:border-[#8C5A4C]/50"
+              className="space-y-4 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 shadow-xl transition-all hover:border-[#4F46E5]/50"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#8C5A4C]/30 bg-[#8C5A4C]/20 font-mono text-xl font-bold text-[#D98A5B]">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#4F46E5]/30 bg-[#4F46E5]/20 font-mono text-xl font-bold text-theme-accent">
                 3
               </div>
-              <h3 className="font-serif text-lg font-bold text-[var(--text-primary)]">
+              <h3 className="font-sans text-lg font-bold text-theme-primary">
                 Customers connect
               </h3>
-              <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
+              <p className="text-sm leading-relaxed text-theme-secondary">
                 Customers scan or tap, see what is available, select what they
                 need, and complete orders directly.
               </p>
@@ -678,13 +695,13 @@ export default function LinkoLandingPage() {
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto mb-12 max-w-2xl space-y-4 text-center">
-            <span className="font-mono text-xs tracking-wider text-[#D98A5B] uppercase">
+            <span className="font-mono text-xs tracking-wider text-theme-accent uppercase">
               Dual Product Experiences
             </span>
-            <h2 className="font-serif text-3xl font-bold text-[var(--text-primary)] sm:text-5xl">
+            <h2 className="font-sans text-3xl font-bold text-theme-primary sm:text-5xl">
               Built for both customers and business owners
             </h2>
-            <p className="text-sm text-[var(--text-secondary)] sm:text-base">
+            <p className="text-sm text-theme-secondary sm:text-base">
               Switch between the public customer interface and the private
               business workspace.
             </p>
@@ -696,13 +713,13 @@ export default function LinkoLandingPage() {
                 className={`relative z-10 rounded-xl px-6 py-2.5 text-xs font-medium transition-colors sm:text-sm ${
                   activeTab === 'customer'
                     ? 'font-bold text-white'
-                    : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                    : 'text-theme-secondary hover:text-theme-primary'
                 }`}
               >
                 {activeTab === 'customer' && (
                   <motion.div
                     layoutId="activeTabGlow"
-                    className="absolute inset-0 z-[-1] rounded-xl bg-[#8C5A4C]"
+                    className="absolute inset-0 z-[-1] rounded-xl bg-[#4F46E5]"
                     transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                   />
                 )}
@@ -714,13 +731,13 @@ export default function LinkoLandingPage() {
                 className={`relative z-10 rounded-xl px-6 py-2.5 text-xs font-medium transition-colors sm:text-sm ${
                   activeTab === 'business'
                     ? 'font-bold text-white'
-                    : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                    : 'text-theme-secondary hover:text-theme-primary'
                 }`}
               >
                 {activeTab === 'business' && (
                   <motion.div
                     layoutId="activeTabGlow"
-                    className="absolute inset-0 z-[-1] rounded-xl bg-[#8C5A4C]"
+                    className="absolute inset-0 z-[-1] rounded-xl bg-[#4F46E5]"
                     transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                   />
                 )}
@@ -740,25 +757,25 @@ export default function LinkoLandingPage() {
                 className="mx-auto grid max-w-5xl items-center gap-12 lg:grid-cols-12"
               >
                 <div className="space-y-6 lg:col-span-5">
-                  <h3 className="font-serif text-2xl font-bold text-[var(--text-primary)]">
+                  <h3 className="font-sans text-2xl font-bold text-theme-primary">
                     Zero app installs. Pure convenience.
                   </h3>
-                  <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
+                  <p className="text-sm leading-relaxed text-theme-secondary">
                     Customers scan your QR code or open your link. No
                     registration, no app store download required. They
                     immediately see what is available and select what they need.
                   </p>
-                  <ul className="space-y-3 text-sm text-[var(--text-primary)]">
+                  <ul className="space-y-3 text-sm text-theme-primary">
                     <li className="flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-[#8C5A4C]" />{' '}
+                      <CheckCircle2 className="h-4 w-4 text-theme-accent" />{' '}
                       Instant category browsing
                     </li>
                     <li className="flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-[#8C5A4C]" />{' '}
+                      <CheckCircle2 className="h-4 w-4 text-theme-accent" />{' '}
                       Real-time pricing & availability indicators
                     </li>
                     <li className="flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-[#8C5A4C]" />{' '}
+                      <CheckCircle2 className="h-4 w-4 text-theme-accent" />{' '}
                       Seamless WhatsApp order handoff
                     </li>
                   </ul>
@@ -766,20 +783,20 @@ export default function LinkoLandingPage() {
 
                 <div className="space-y-4 rounded-[32px] border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 shadow-2xl lg:col-span-7">
                   <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-3">
-                    <span className="font-mono text-xs text-[#D98A5B]">
+                    <span className="font-mono text-xs text-theme-accent">
                       linko.app/chuks-kitchen
                     </span>
-                    <span className="text-xs text-[var(--text-secondary)]">
+                    <span className="text-xs text-theme-secondary">
                       Customer View
                     </span>
                   </div>
 
                   <div className="space-y-3">
                     <div className="flex gap-2">
-                      <button className="rounded-lg bg-[#8C5A4C] px-3 py-1 text-xs font-medium text-white">
+                      <button className="rounded-lg bg-[#4F46E5] px-3 py-1 text-xs font-medium text-white">
                         Meals
                       </button>
-                      <button className="rounded-lg bg-[var(--bg-element)] px-3 py-1 text-xs font-medium text-[var(--text-secondary)]">
+                      <button className="rounded-lg bg-[var(--bg-element)] px-3 py-1 text-xs font-medium text-theme-secondary">
                         Drinks
                       </button>
                     </div>
@@ -787,10 +804,10 @@ export default function LinkoLandingPage() {
                     <div className="space-y-2">
                       <div className="flex items-center justify-between rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-element)] p-3">
                         <div>
-                          <h4 className="text-xs font-medium text-[var(--text-primary)]">
+                          <h4 className="text-xs font-medium text-theme-primary">
                             Chicken & Chips
                           </h4>
-                          <span className="font-mono text-xs text-[#D98A5B]">
+                          <span className="font-mono text-xs text-theme-accent">
                             ₦3,500
                           </span>
                         </div>
@@ -799,16 +816,16 @@ export default function LinkoLandingPage() {
                             onClick={() =>
                               setDemoCartQty((q) => Math.max(0, q - 1))
                             }
-                            className="flex h-6 w-6 items-center justify-center rounded bg-black/10 dark:bg-white/10 text-xs text-[var(--text-primary)]"
+                            className="flex h-6 w-6 items-center justify-center rounded bg-black/10 text-xs text-theme-primary dark:bg-white/10"
                           >
                             -
                           </button>
-                          <span className="w-4 text-center font-mono text-xs font-bold text-[var(--text-primary)]">
+                          <span className="w-4 text-center font-mono text-xs font-bold text-theme-primary">
                             {demoCartQty}
                           </span>
                           <button
                             onClick={() => setDemoCartQty((q) => q + 1)}
-                            className="flex h-6 w-6 items-center justify-center rounded bg-[#8C5A4C] text-xs text-white"
+                            className="flex h-6 w-6 items-center justify-center rounded bg-[#4F46E5] text-xs text-white"
                           >
                             +
                           </button>
@@ -818,7 +835,7 @@ export default function LinkoLandingPage() {
 
                     <motion.div
                       whileHover={{ scale: 1.02 }}
-                      className="flex cursor-pointer items-center justify-between rounded-xl bg-[#8C5A4C] p-3.5 text-white shadow-lg"
+                      className="flex cursor-pointer items-center justify-between rounded-xl bg-[#4F46E5] p-3.5 text-white shadow-lg"
                     >
                       <span className="text-xs font-bold">
                         {demoCartQty} item(s) · ₦{demoCartQty * 3500}
@@ -840,54 +857,54 @@ export default function LinkoLandingPage() {
                 className="mx-auto grid max-w-5xl items-center gap-12 lg:grid-cols-12"
               >
                 <div className="space-y-6 lg:col-span-5">
-                  <h3 className="font-serif text-2xl font-bold text-[var(--text-primary)]">
+                  <h3 className="font-sans text-2xl font-bold text-theme-primary">
                     Your brand. Your workspace.
                   </h3>
-                  <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
-                    Linko feels like your own business workspace. Update
-                    prices, toggle availability when items run out, track order
-                    metrics, and copy your link anytime.
+                  <p className="text-sm leading-relaxed text-theme-secondary">
+                    Linko feels like your own business workspace. Update prices,
+                    toggle availability when items run out, track order metrics,
+                    and copy your link anytime.
                   </p>
-                  <ul className="space-y-3 text-sm text-[var(--text-primary)]">
+                  <ul className="space-y-3 text-sm text-theme-primary">
                     <li className="flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-[#8C5A4C]" /> Manage
+                      <CheckCircle2 className="h-4 w-4 text-theme-accent" /> Manage
                       catalog & real-time item availability
                     </li>
                     <li className="flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-[#8C5A4C]" /> View
+                      <CheckCircle2 className="h-4 w-4 text-theme-accent" /> View
                       order counts (Day / Week / Month)
                     </li>
                     <li className="flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-[#8C5A4C]" /> Quick 1-tap
-                      PWA home screen shortcut
+                      <CheckCircle2 className="h-4 w-4 text-theme-accent" /> Quick
+                      1-tap PWA home screen shortcut
                     </li>
                   </ul>
                 </div>
 
                 <div className="space-y-4 rounded-[32px] border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 shadow-2xl lg:col-span-7">
                   <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-3">
-                    <h4 className="font-serif text-base font-bold text-[var(--text-primary)]">
+                    <h4 className="font-sans text-base font-bold text-theme-primary">
                       Welcome back, Chuks Kitchen 👋
                     </h4>
-                    <span className="rounded bg-[#8C5A4C]/20 px-2 py-0.5 font-mono text-xs font-bold text-[#D98A5B]">
+                    <span className="rounded bg-[#4F46E5]/20 px-2 py-0.5 font-mono text-xs font-bold text-theme-accent">
                       Workspace
                     </span>
                   </div>
 
                   <div className="grid grid-cols-2 gap-3">
                     <div className="rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-element)] p-3.5">
-                      <span className="font-mono text-[10.5px] text-[var(--text-secondary)] uppercase">
+                      <span className="font-mono text-[10.5px] text-theme-secondary uppercase">
                         Product Catalog
                       </span>
-                      <p className="mt-1 font-mono text-lg font-bold text-[var(--text-primary)]">
+                      <p className="mt-1 font-mono text-lg font-bold text-theme-primary">
                         24 Active Items
                       </p>
                     </div>
                     <div className="rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-element)] p-3.5">
-                      <span className="font-mono text-[10.5px] text-[var(--text-secondary)] uppercase">
+                      <span className="font-mono text-[10.5px] text-theme-secondary uppercase">
                         Orders Today
                       </span>
-                      <p className="mt-1 font-mono text-lg font-bold text-[#D98A5B]">
+                      <p className="mt-1 font-mono text-lg font-bold text-theme-accent">
                         14 Orders (₦42k)
                       </p>
                     </div>
@@ -895,10 +912,12 @@ export default function LinkoLandingPage() {
 
                   <div className="flex items-center justify-between rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-element)] p-3">
                     <div className="flex items-center gap-2">
-                      <QrCode className="h-4 w-4 text-[#8C5A4C]" />
-                      <span className="text-xs text-[var(--text-primary)]">Print Storefront QR</span>
+                      <QrCode className="h-4 w-4 text-theme-accent" />
+                      <span className="text-xs text-theme-primary">
+                        Print Storefront QR
+                      </span>
                     </div>
-                    <button className="rounded-lg bg-[#8C5A4C] px-3 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-[#9E6756]">
+                    <button className="rounded-lg bg-[#4F46E5] px-3 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-[#4338CA]">
                       Download SVG
                     </button>
                   </div>
@@ -910,7 +929,10 @@ export default function LinkoLandingPage() {
       </section>
 
       {/* 6. Use Cases Across Verticals */}
-      <section id="use-cases" className="border-b border-[var(--border-subtle)] py-20">
+      <section
+        id="use-cases"
+        className="border-b border-[var(--border-subtle)] py-20"
+      >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -921,19 +943,19 @@ export default function LinkoLandingPage() {
           >
             <motion.span
               variants={fadeInUp}
-              className="font-mono text-xs tracking-wider text-[#D98A5B] uppercase"
+              className="font-mono text-xs tracking-wider text-theme-accent uppercase"
             >
               Vertical Neutral
             </motion.span>
             <motion.h2
               variants={fadeInUp}
-              className="font-serif text-3xl font-bold text-[var(--text-primary)] sm:text-5xl"
+              className="font-sans text-3xl font-bold text-theme-primary sm:text-5xl"
             >
               Built for every local business
             </motion.h2>
             <motion.p
               variants={fadeInUp}
-              className="text-sm text-[var(--text-secondary)] sm:text-base"
+              className="text-sm text-theme-secondary sm:text-base"
             >
               Linko works seamlessly for retail stores, food vendors, service
               providers, and freelancers.
@@ -980,15 +1002,15 @@ export default function LinkoLandingPage() {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.08 }}
                 whileHover={{ y: -5 }}
-                className="space-y-3 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 shadow-lg transition-all hover:border-[#8C5A4C]/50"
+                className="space-y-3 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 shadow-lg transition-all hover:border-[#4F46E5]/50"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#8C5A4C]/20 text-[#D98A5B]">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#4F46E5]/20 text-theme-accent">
                   <useCase.icon className="h-5 w-5" />
                 </div>
-                <h3 className="font-serif text-lg font-bold text-[var(--text-primary)]">
+                <h3 className="font-sans text-lg font-bold text-theme-primary">
                   {useCase.title}
                 </h3>
-                <p className="text-xs leading-relaxed text-[var(--text-secondary)]">
+                <p className="text-xs leading-relaxed text-theme-secondary">
                   {useCase.desc}
                 </p>
               </motion.div>
@@ -1000,15 +1022,15 @@ export default function LinkoLandingPage() {
       {/* 9. PWA Installation Section */}
       <section className="border-b border-[var(--border-subtle)] bg-[var(--bg-element)] py-20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="grid items-center gap-8 rounded-3xl border border-[#8C5A4C]/30 bg-gradient-to-br from-[#8C5A4C]/20 to-[var(--bg-surface)] p-8 shadow-2xl md:grid-cols-12">
+          <div className="grid items-center gap-8 rounded-3xl border border-[#4F46E5]/30 bg-gradient-to-br from-[#4F46E5]/20 to-[var(--bg-surface)] p-8 shadow-2xl md:grid-cols-12">
             <div className="space-y-4 md:col-span-7">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#8C5A4C]/30 bg-[#8C5A4C]/20 px-3 py-1 font-mono text-xs text-[#D98A5B]">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#4F46E5]/30 bg-[#4F46E5]/20 px-3 py-1 font-mono text-xs text-theme-accent">
                 <Smartphone className="h-3.5 w-3.5" /> Progressive Web App
               </span>
-              <h2 className="font-serif text-3xl font-bold text-[var(--text-primary)]">
+              <h2 className="font-sans text-3xl font-bold text-theme-primary">
                 Keep your business one tap away.
               </h2>
-              <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
+              <p className="text-sm leading-relaxed text-theme-secondary">
                 Install Linko on your phone for instant 1-tap access to your
                 business workspace. Zero installation required for your
                 customers.
@@ -1018,7 +1040,7 @@ export default function LinkoLandingPage() {
               <motion.button
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="inline-flex items-center gap-2 rounded-xl bg-[#8C5A4C] px-6 py-3.5 text-sm font-medium text-white shadow-lg shadow-[#8C5A4C]/30 hover:bg-[#9E6756]"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#4F46E5] px-6 py-3.5 text-sm font-medium text-white shadow-lg shadow-[#4F46E5]/30 hover:bg-[#4338CA]"
               >
                 <Download className="h-4 w-4" /> Install Dashboard PWA
               </motion.button>
@@ -1031,10 +1053,10 @@ export default function LinkoLandingPage() {
       <section id="get-started" className="relative overflow-hidden py-24">
         <div className="relative z-10 mx-auto max-w-4xl space-y-8 px-4 text-center sm:px-6 lg:px-8">
           <div className="space-y-4">
-            <h2 className="font-serif text-4xl font-bold tracking-tight text-[var(--text-primary)] sm:text-6xl">
+            <h2 className="font-sans text-4xl font-bold tracking-tight text-theme-primary sm:text-6xl">
               Ready to save yourself some time?
             </h2>
-            <p className="mx-auto max-w-xl text-base text-[var(--text-secondary)] sm:text-lg">
+            <p className="mx-auto max-w-xl text-base text-theme-secondary sm:text-lg">
               Create your business page, share one link, and let your customers
               find what they need without the back-and-forth.
             </p>
@@ -1043,16 +1065,16 @@ export default function LinkoLandingPage() {
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
               <Link
-                href="/order-now"
-                className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#8C5A4C] px-8 py-4 text-base font-medium text-white shadow-xl shadow-[#8C5A4C]/30 transition-all hover:bg-[#9E6756] sm:w-auto"
+                href="/cart"
+                className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#4F46E5] px-8 py-4 text-base font-medium text-white shadow-xl shadow-[#4F46E5]/30 transition-all hover:bg-[#4338CA] sm:w-auto"
               >
                 Create Your Business <ArrowRight className="h-5 w-5" />
               </Link>
             </motion.div>
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Link
-                href="/order-now"
-                className="flex w-full items-center justify-center gap-2 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] px-8 py-4 text-base font-medium text-[var(--text-primary)] transition-all hover:bg-[var(--bg-card)] sm:w-auto"
+                href="/cart"
+                className="flex w-full items-center justify-center gap-2 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] px-8 py-4 text-base font-medium text-theme-primary transition-all hover:bg-[var(--bg-card)] sm:w-auto"
               >
                 Explore Demo Storefront
               </Link>
@@ -1062,7 +1084,7 @@ export default function LinkoLandingPage() {
       </section>
 
       {/* 11. Footer */}
-      <footer className="border-t border-[var(--border-subtle)] py-12 text-xs text-[var(--text-secondary)]">
+      <footer className="border-t border-[var(--border-subtle)] py-12 text-xs text-theme-secondary">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 sm:px-6 md:flex-row lg:px-8">
           <Link href="/" className="group">
             <LinkoLogo size="sm" />
@@ -1076,16 +1098,19 @@ export default function LinkoLandingPage() {
           <div className="flex items-center gap-6">
             <a
               href="#how-it-works"
-              className="transition-colors hover:text-[var(--text-primary)]"
+              className="transition-colors hover:text-theme-primary"
             >
               How It Works
             </a>
-            <a href="#use-cases" className="transition-colors hover:text-[var(--text-primary)]">
+            <a
+              href="#use-cases"
+              className="transition-colors hover:text-theme-primary"
+            >
               Use Cases
             </a>
             <Link
-              href="/order-now"
-              className="transition-colors hover:text-[var(--text-primary)]"
+              href="/cart"
+              className="transition-colors hover:text-theme-primary"
             >
               Demo
             </Link>
