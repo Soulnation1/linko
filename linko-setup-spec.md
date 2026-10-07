@@ -6,23 +6,16 @@ For: coding agent in IDE · Scope: bootstrap the project itself (not screen-by-s
 
 ## 1. Project setup
 
-```bash
-npx create-next-app@latest Linko --typescript --tailwind --eslint --app --src-dir --import-alias "@/*"
-```
+This repository is a pnpm workspace coordinated by Turborepo. The existing Next.js app lives in `apps/web`; future applications belong under `apps/`, and reusable platform-independent code belongs under `packages/`.
 
-Confirm these choices when scaffolding:
-
-- App Router (not Pages Router)
-- `src/` directory: yes
-- Import alias: `@/*`
-- Tailwind: yes, and immediately replace the generated `tailwind.config.ts` theme with §4 below — don't build anything on the default Tailwind palette/type scale first and swap later
-
-Additional dependencies to install:
+Install dependencies from the repository root and run app tasks through the root scripts:
 
 ```bash
-npm install next-pwa
-npm install -D @types/node
+pnpm install
+pnpm dev
 ```
+
+When creating the native app or backend, add it as a workspace under `apps/` rather than scaffolding another project at the repository root. Keep app-specific dependencies in that app's `package.json`.
 
 `next-pwa` handles service-worker generation and manifest wiring so we're not hand-rolling Workbox config. If a more recent equivalent has since become the standard, that's fine — the requirement is "a maintained Next.js PWA plugin that generates the service worker at build time," not this specific package name.
 
@@ -35,35 +28,27 @@ TypeScript config: enable `strict: true` in `tsconfig.json`. No `any` in new cod
 - State: React Context for cross-page state that must survive client-side navigation (e.g. cart contents). Don't reach for Redux/Zustand unless the mock-data layer's complexity later demands it
 - No component library (shadcn/MUI/etc.) — build primitives from scratch per the style guide below, so the product doesn't inherit a default visual identity we then have to fight
 
-**Top-level structure:**
+**Workspace structure:**
 
 ```
-src/
-  app/
-    layout.tsx              -- root layout: fonts, PWA meta tags, manifest link
-    manifest.ts              -- Next.js native manifest route (see §5)
-    [businessSlug]/
-      page.tsx                -- storefront
-      cart/page.tsx
-      confirm/page.tsx
-  components/
-    ui/                       -- shared primitives: Button, Badge, Divider, QuantityStepper
-    storefront/
-    cart/
-    confirm/
-  lib/
-    data/                     -- data-access layer (mock now, real later)
-    whatsapp.ts
-    cart-context.tsx
-  types/
-    index.ts
-  styles/
-    globals.css
-public/
-  icons/                      -- PWA icon set, see §5
+apps/
+  web/                        -- Existing Next.js app and PWA
+    src/
+      app/
+      components/
+      lib/
+      types/                   -- Web-only component props stay with the app
+    public/
+    next.config.ts
+    package.json
+  mobile/                     -- Planned Expo / React Native app
+  api/                        -- Planned backend app
+packages/
+  domain/                     -- Shared business and listing types/rules
+  api-client/                 -- Add when the backend contract is defined
 ```
 
-Naming conventions: components in PascalCase files matching the component name; one component per file; colocate a component's trivial sub-parts in the same file rather than fragmenting into many tiny files.
+Share domain logic and contracts across platforms. Web components that depend on DOM APIs or Tailwind are not automatically reusable in React Native; implement native UI separately or add a deliberate cross-platform UI package later. Naming conventions: components in PascalCase files matching the component name; one component per file; colocate a component's trivial sub-parts in the same file rather than fragmenting into many tiny files.
 
 ## 3. Design philosophy
 
@@ -76,7 +61,7 @@ Avoid the generic AI-SaaS look: no uniform rounded-card-with-soft-shadow treatme
 
 ## 4. Style guide / design tokens
 
-`tailwind.config.ts` theme extension:
+`apps/web/tailwind.config.ts` theme extension:
 
 ```ts
 theme: {
@@ -100,7 +85,7 @@ theme: {
 }
 ```
 
-Load fonts via `next/font/google` in `app/layout.tsx` (Fraunces, Public Sans, JetBrains Mono), exposing each as a CSS variable and wiring those variables into the `fontFamily` config above — don't load fonts via a `<link>` tag.
+Load fonts via `next/font/google` in `apps/web/src/app/layout.tsx` (Fraunces, Public Sans, JetBrains Mono), exposing each as a CSS variable and wiring those variables into the `fontFamily` config above — don't load fonts via a `<link>` tag.
 
 **Type roles:**
 
@@ -132,7 +117,7 @@ Reference it via Tailwind arbitrary values (`bg-[var(--accent)]`, `text-[var(--a
 
 **Goal:** the product should be installable, and the customer-facing menu should remain usable (showing the last-cached menu) when offline — see original brief §21. Full install-prompt UX and business-side offline handling come later; this section just needs the technical foundation in place.
 
-**`next.config.js`** — wrap the Next config with `next-pwa`:
+**`apps/web/next.config.ts`** — wrap the Next config with `next-pwa`:
 
 ```js
 const withPWA = require("next-pwa")({
@@ -146,7 +131,7 @@ module.exports = withPWA({
 });
 ```
 
-**Manifest** — use Next's native `app/manifest.ts` (App Router convention) rather than a static `public/manifest.json`:
+**Manifest** — use Next's native `apps/web/src/app/manifest.ts` (App Router convention) rather than a static `public/manifest.json`:
 
 ```ts
 import type { MetadataRoute } from "next";
@@ -174,9 +159,9 @@ export default function manifest(): MetadataRoute.Manifest {
 }
 ```
 
-Icon assets needed in `public/icons/`: `icon-192.png`, `icon-512.png`, `icon-maskable-512.png` (maskable = safe-zone padding per the maskable-icon spec), plus a favicon. Placeholder icons are fine for now — flag them clearly as placeholders so they get swapped before launch.
+Icon assets needed in `apps/web/public/icons/`: `icon-192.png`, `icon-512.png`, `icon-maskable-512.png` (maskable = safe-zone padding per the maskable-icon spec), plus a favicon. Placeholder icons are fine for now — flag them clearly as placeholders so they get swapped before launch.
 
-**Root layout requirements** (`app/layout.tsx`):
+**Web root layout requirements** (`apps/web/src/app/layout.tsx`):
 
 - `<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />`
 - Respect safe-area insets on any fixed/sticky element (the storefront's sticky order bar, in particular): `padding-bottom: env(safe-area-inset-bottom, 0px)` on that element, not just on `body`.
