@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import { Toaster } from "sonner";
 import { ThemeProvider } from "@/components/theme-provider";
+import { SuccessModalHost } from "@/components/shared";
 import "./globals.css";
 
 const inter = Inter({
@@ -69,6 +71,8 @@ export default function RootLayout({
       <body className="min-h-full bg-[var(--bg-base)] text-theme-primary font-sans antialiased transition-colors duration-250">
         <ThemeProvider defaultTheme="dark">
           {children}
+          <SuccessModalHost />
+          <Toaster position="top-center" richColors />
         </ThemeProvider>
       </body>
     </html>

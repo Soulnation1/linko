@@ -3,6 +3,7 @@
 This file is the single source of truth for business-side implementation progress.
 
 Use it as a checkpoint tracker:
+
 - mark a milestone as `[x]` when complete
 - mark a milestone as `[ ]` when not started or still pending
 - mark a milestone as `[!]` when blocked and include the exact blocker
@@ -38,6 +39,7 @@ Use it as a checkpoint tracker:
 ## Milestone checklist
 
 ### Phase 1 — Shared model + config
+
 - [x] Create shared business and listing types
 - [x] Add industry and offering enums
 - [x] Add getTerms(business) helper
@@ -49,19 +51,22 @@ Use it as a checkpoint tracker:
 - Commit message: `feat(business): phase 1 - shared business model and config`
 
 ### Phase 2 — Reusable UI primitives
-- [ ] Create SuccessModal + Zustand host
-- [ ] Create ConfirmDialog
-- [ ] Create ImageUpload
-- [ ] Create OptionsEditor
-- [ ] Create SearchInput
-- [ ] Create StatusBadge
-- [ ] Create EmptyState
-- [ ] Create OfflineBanner
-- [ ] Create AuthLayout
-- [ ] Validate client/server boundary correctness
-- Stop note: continue from here once the shared UI shell is ready.
+
+- [x] Create SuccessModal + Zustand host
+- [x] Create ConfirmDialog
+- [x] Create ImageUpload
+- [x] Create OptionsEditor
+- [x] Create SearchInput
+- [x] Create StatusBadge
+- [x] Create EmptyState
+- [x] Create OfflineBanner
+- [x] Create AuthLayout
+- [x] Validate client/server boundary correctness
+- Completion note: shared primitives are implemented, integrated into the root layout, and validated with lint, typecheck, and production build.
+- Commit message: `feat(business): phase 2 - reusable ui primitives and shared components`
 
 ### Phase 3 — App shell and navigation
+
 - [ ] Create lib/nav.ts with single source of truth
 - [ ] Create desktop sidebar layout
 - [ ] Create topbar with link, notifications, avatar menu
@@ -73,6 +78,7 @@ Use it as a checkpoint tracker:
 - Stop note: continue from here once the shell works on mobile and desktop.
 
 ### Phase 4 — Mock auth + mock data layer
+
 - [ ] Create mock auth flow functions
 - [ ] Create lib/data functions for mock business/listing data
 - [ ] Add Zustand stores for business and listings
@@ -82,6 +88,7 @@ Use it as a checkpoint tracker:
 - Stop note: continue from here after demo data and mock auth are functional.
 
 ### Phase 5 — Authentication flow
+
 - [ ] Login page
 - [ ] Sign up page
 - [ ] Forgot password page
@@ -91,6 +98,7 @@ Use it as a checkpoint tracker:
 - Stop note: continue from here once app entry flow is working.
 
 ### Phase 6 — Onboarding wizard
+
 - [ ] Step 1: What do you offer?
 - [ ] Step 2: Business details
 - [ ] Step 3: Look and feel / storefront preview
@@ -100,6 +108,7 @@ Use it as a checkpoint tracker:
 - Stop note: continue from here after initial business setup is complete.
 
 ### Phase 7 — Dashboard home
+
 - [ ] Welcome section and business name hero
 - [ ] Live link pill with copy/preview actions
 - [ ] Quick actions support
@@ -109,6 +118,7 @@ Use it as a checkpoint tracker:
 - Stop note: continue from here when the dashboard overview is working.
 
 ### Phase 8 — Listings management
+
 - [ ] Listings index page with category and count summary
 - [ ] Search and filter logic
 - [ ] Grouping by category
@@ -123,6 +133,7 @@ Use it as a checkpoint tracker:
 - Stop note: continue from here once listing CRUD is stable.
 
 ### Phase 9 — Orders and share flow
+
 - [ ] Orders page and status filters
 - [ ] Mark completed flow
 - [ ] Share & QR page
@@ -132,6 +143,7 @@ Use it as a checkpoint tracker:
 - Stop note: continue from here after order and share functionality works.
 
 ### Phase 10 — Settings
+
 - [ ] Settings hub
 - [ ] Business profile
 - [ ] Branding and appearance
@@ -142,6 +154,7 @@ Use it as a checkpoint tracker:
 - Stop note: continue from here when configuration screens are in place.
 
 ### Phase 11 — Customer-side compatibility pass
+
 - [ ] Shared types migrated to Listing union
 - [ ] Cart lines keyed by listing + option
 - [ ] Cart state scoped by business slug
@@ -153,6 +166,7 @@ Use it as a checkpoint tracker:
 - Stop note: continue from here after customer flow compatibility is verified.
 
 ### Phase 12 — Final QA and accessibility pass
+
 - [ ] Keyboard and focus behavior across modals and drawers
 - [ ] Reduced-motion handling
 - [ ] Color + text status accessibility
@@ -166,11 +180,13 @@ Use it as a checkpoint tracker:
 `[ ] Phase 8 — Listings management`
 
 Past work completed:
+
 - shared business types are ready
 - reusable modal and form components exist
 - dashboard shell is complete
 
 Current stop point:
+
 - paused while building the listings page and form validation
 - next action: complete `ListingForm` config-driven rendering and test product/service variants
 
@@ -180,6 +196,7 @@ Stop note:
 ## Completion rule
 
 A milestone is considered complete only when:
+
 - the checklist item is checked off
 - the feature works in context
 - no obvious blocker remains in the milestone scope
