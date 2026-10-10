@@ -579,6 +579,7 @@ export default function LinkoLandingPage() {
                 <div className="flex items-center justify-between rounded-xl border border-[#4F46E5]/40 bg-[#4F46E5]/20 p-3">
                   <span className="font-medium text-theme-primary">
                     4. Vendor replies with Account Details & completes order!
+                    <p>Interesting part? customer does  not have to sign up</p>
                   </span>
                   <Check className="h-4 w-4 flex-shrink-0 text-theme-accent" />
                 </div>
@@ -958,7 +959,7 @@ export default function LinkoLandingPage() {
               className="text-sm text-theme-secondary sm:text-base"
             >
               Linko works seamlessly for retail stores, food vendors, service
-              providers, and freelancers.
+              providers,freelancers and any business type.
             </motion.p>
           </motion.div>
 
@@ -1004,8 +1005,8 @@ export default function LinkoLandingPage() {
                 whileHover={{ y: -5 }}
                 className="space-y-3 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 shadow-lg transition-all hover:border-[#4F46E5]/50"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#4F46E5]/20 text-theme-accent">
-                  <useCase.icon className="h-5 w-5" />
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#4F46E5]/20 text-theme-accent">
+                  <useCase.icon className="h-5 w-5 " />
                 </div>
                 <h3 className="font-sans text-lg font-bold text-theme-primary">
                   {useCase.title}
@@ -1054,7 +1055,7 @@ export default function LinkoLandingPage() {
         <div className="relative z-10 mx-auto max-w-4xl space-y-8 px-4 text-center sm:px-6 lg:px-8">
           <div className="space-y-4">
             <h2 className="font-sans text-4xl font-bold tracking-tight text-theme-primary sm:text-6xl">
-              Ready to save yourself some time?
+              Ready to <span className="text-[#4F46E5]">save</span> yourself some <span className="text-[#4F46E5]">time?</span>?
             </h2>
             <p className="mx-auto max-w-xl text-base text-theme-secondary sm:text-lg">
               Create your business page, share one link, and let your customers

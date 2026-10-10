@@ -67,15 +67,17 @@ Use it as a checkpoint tracker:
 
 ### Phase 3 — App shell and navigation
 
-- [ ] Create lib/nav.ts with single source of truth
-- [ ] Create desktop sidebar layout
-- [ ] Create topbar with link, notifications, avatar menu
-- [ ] Create mobile drawer with overlay and focus management
-- [ ] Add responsive breakpoints and drawer behavior
-- [ ] Add body scroll lock and accessibility attributes
-- [ ] Add PWA-safe spacing and sticky mobile actions
-- [ ] Validate route navigation and active states
-- Stop note: continue from here once the shell works on mobile and desktop.
+- [x] Create lib/nav.ts with single source of truth
+- [x] Create desktop sidebar layout
+- [x] Create topbar with link, notifications, avatar menu
+- [x] Create mobile drawer with overlay and focus management
+- [x] Add responsive breakpoints and drawer behavior
+- [x] Add body scroll lock and accessibility attributes
+- [x] Add PWA-safe spacing and sticky mobile actions
+- [x] Validate route navigation and active states
+- Completion note: the responsive shell and navigation are implemented; current/future dashboard destinations resolve through a temporary placeholder until their page milestones replace it.
+- Validation note: lint, typecheck, production build, and browser checks for route navigation, mobile drawer close/focus, body scroll lock, and desktop resize all passed.
+- Commit message: `feat(business): phase 3 - app shell and responsive navigation`
 
 ### Phase 4 — Mock auth + mock data layer
 
