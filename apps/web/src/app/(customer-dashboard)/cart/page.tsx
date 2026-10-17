@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Minus, Plus, ShoppingBag, ArrowRight } from 'lucide-react';
 import { BusinessHeader } from '@/components/ui/business-header';
-import { ThemeToggle } from '@/components/ui/theme-toggle';
+import { ThemeToggle } from '@linko/ui';
 import { useCart } from '@/components/storefront/cart-provider';
 import { MOCK_BUSINESS, MOCK_MENU_ITEMS } from '@/lib/mock-data';
 
