@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@import "@linko/ui/styles.css";
+
+html {
+  scroll-padding-top: 4rem;
+}

@@ -1,9 +1,6 @@
-import { clsx, type ClassValue } from 'clsx';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@linko/ui';
 
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
+export { cn };
 
 export function getInitials(name: string): string {
   if (!name) return 'B';
