@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { LinkoLogo } from "@/components/ui/logo";
+import { LinkoLogo } from "@linko/ui";
 
 export function AuthLayout({
   children,

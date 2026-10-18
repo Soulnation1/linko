@@ -10,7 +10,7 @@ const withPWA = require("next-pwa")({
 
 const nextConfig: NextConfig = {
   turbopack: {},
-  transpilePackages: ["@linko/domain"],
+  transpilePackages: ["@linko/domain", "@linko/ui"],
 };
 
 export default withPWA(nextConfig);

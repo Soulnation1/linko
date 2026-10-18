@@ -6,16 +6,23 @@
   "scripts": {
     "dev": "turbo run dev --filter=@linko/web",
     "dev:web": "turbo run dev --filter=@linko/web",
+    "dev:website": "turbo run dev --filter=@linko/website",
     "dev:mobile": "turbo run dev --filter=@linko/mobile",
     "web": "pnpm run dev:web",
+    "website": "pnpm run dev:website",
     "mobile": "pnpm run dev:mobile",
-    "build": "turbo run build --filter=@linko/web",
+    "build": "turbo run build --filter=@linko/web --filter=@linko/website",
     "build:web": "turbo run build --filter=@linko/web",
+    "build:website": "turbo run build --filter=@linko/website",
     "start": "pnpm --filter @linko/web start",
-    "lint": "turbo run lint --filter=@linko/web",
+    "start:website": "pnpm --filter @linko/website start",
+    "lint": "turbo run lint --filter=@linko/web --filter=@linko/website",
     "lint:web": "turbo run lint --filter=@linko/web",
-    "typecheck": "turbo run typecheck --filter=@linko/web",
-    "typecheck:web": "turbo run typecheck --filter=@linko/web"
+    "lint:website": "turbo run lint --filter=@linko/website",
+    "typecheck": "turbo run typecheck --filter=@linko/web --filter=@linko/website --filter=@linko/ui",
+    "typecheck:web": "turbo run typecheck --filter=@linko/web",
+    "typecheck:website": "turbo run typecheck --filter=@linko/website",
+    "typecheck:ui": "turbo run typecheck --filter=@linko/ui"
   },
   "devDependencies": {
     "turbo": "^2.5.0"

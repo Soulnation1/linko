@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ArrowLeft, ShoppingBag } from 'lucide-react';
 import type { ReactNode } from 'react';
-import { ThemeToggle } from '@/components/ui/theme-toggle';
+import { ThemeToggle } from '@linko/ui';
 import { BusinessHeader } from '@/components/ui/business-header';
 import { MOCK_BUSINESS } from '@/lib/mock-data';
 

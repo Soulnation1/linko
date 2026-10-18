@@ -39,4 +39,7 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# local progress tracker (kept out of git so branch switches don't overwrite it)
+/BUSINESS_INTERFACE_MILESTONES.md
 next-env.d.ts
