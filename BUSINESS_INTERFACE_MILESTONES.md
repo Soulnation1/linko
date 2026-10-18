@@ -79,13 +79,15 @@ Use it as a checkpoint tracker:
 
 ### Phase 4 — Mock auth + mock data layer
 
-- [ ] Create mock auth flow functions
-- [ ] Create lib/data functions for mock business/listing data
-- [ ] Add Zustand stores for business and listings
-- [ ] Persist demo data with localStorage
-- [ ] Add artificial delay for realistic loading states
-- [ ] Add TODO(auth) guard in dashboard layout
-- Stop note: continue from here after demo data and mock auth are functional.
+- [x] Create mock auth flow functions
+- [x] Create lib/data functions for mock business/listing data
+- [x] Add Zustand stores for business and listings
+- [x] Persist demo data with localStorage
+- [x] Add artificial delay for realistic loading states
+- [x] Create TODO(auth) `AuthGuard` component for the dashboard layout
+- [!] Wire `AuthGuard` into `app/dashboard/layout.tsx` — deferred. Blocker: the dashboard layout exists only on branch `Phase-3-App-shell-and-navigation`. Do this right after Phase 3 is merged (wrap the layout children with `<AuthGuard>` from `@/components/auth`), then re-run typecheck, lint and build.
+- Completion note: mock auth, the mock data layer, Zustand stores, localStorage persistence and artificial delays are implemented in `apps/web` and validated (typecheck, lint, production build, and a 25-check browser run covering sign-up/sign-in/sign-out, password reset, business and listing CRUD, store behavior, optimistic rollback, and persistence across reload). Code: `lib/auth/`, `lib/data/`, `lib/slug.ts`, `stores/`, `components/auth/auth-guard.tsx`, `packages/domain/src/auth.ts`. Demo login: `demo@linko.app` / `Demo1234!` (call `resetDb()` to restore seed data).
+- Commit message: `feat(business): phase 4 - mock auth and local data layer`
 
 ### Phase 5 — Authentication flow
 
