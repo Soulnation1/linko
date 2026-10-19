@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { Home } from 'lucide-react';
-import { LinkoLogo } from '@/components/ui/logo';
-import { ThemeToggle } from '@/components/ui/theme-toggle';
+import { LinkoLogo, ThemeToggle } from '@linko/ui';
 import { NotFoundContent } from '@/components/storefront/not-found-content';
 
 export default function NotFound() {

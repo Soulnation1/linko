@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { Toaster } from "sonner";
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider, ThemeScript } from "@linko/ui";
 import { SuccessModalHost } from "@/components/shared";
 import "./globals.css";
 
@@ -47,26 +47,7 @@ export default function RootLayout({
       className={`${inter.variable} ${jetbrainsMono.variable}`}
     >
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var saved = localStorage.getItem('linko-theme');
-                  var supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                  if (saved === 'dark' || (!saved && supportDarkMode) || saved === undefined) {
-                    document.documentElement.classList.add('dark');
-                    document.documentElement.setAttribute('data-theme', 'dark');
-                  } else if (saved === 'light') {
-                    document.documentElement.classList.remove('dark');
-                    document.documentElement.classList.add('light');
-                    document.documentElement.setAttribute('data-theme', 'light');
-                  }
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
+        <ThemeScript />
       </head>
       <body className="min-h-full bg-[var(--bg-base)] text-theme-primary font-sans antialiased transition-colors duration-250">
         <ThemeProvider defaultTheme="dark">

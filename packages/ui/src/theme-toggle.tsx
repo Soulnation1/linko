@@ -3,8 +3,8 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon, Laptop } from 'lucide-react';
-import { useTheme, type Theme } from '@/components/theme-provider';
-import { cn } from '@/lib/utils';
+import { useTheme, type Theme } from './theme-provider';
+import { cn } from './cn';
 
 interface ThemeToggleProps {
   className?: string;
