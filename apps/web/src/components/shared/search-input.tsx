@@ -1,5 +1,6 @@
 import { Search, X } from "lucide-react";
 import { useId } from "react";
+import { Input } from "@/components/ui";
 
 export type SearchInputProps = {
   value: string;
@@ -26,13 +27,13 @@ export function SearchInput({
         className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-slate-400"
         aria-hidden="true"
       />
-      <input
+      <Input
         id={inputId}
         type="search"
         value={value}
         onChange={(event) => onChange(event.currentTarget.value)}
         placeholder={placeholder}
-        className="min-h-11 w-full rounded-lg border border-slate-200 bg-white pr-10 pl-10 text-sm text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
+        className="pr-10 pl-10"
       />
       {value && (
         <button
