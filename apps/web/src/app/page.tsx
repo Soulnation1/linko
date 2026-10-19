@@ -809,7 +809,7 @@ export default function LinkoLandingPage() {
                             Chicken & Chips
                           </h4>
                           <span className="font-mono text-xs text-theme-accent">
-                            ₦3,500
+                            ₦3,000
                           </span>
                         </div>
                         <div className="flex items-center gap-2 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-1">
