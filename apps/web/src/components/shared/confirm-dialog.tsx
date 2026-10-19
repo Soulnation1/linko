@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui";
 import { useDialogIds, AccessibleDialog } from "./dialog";
 
 export type ConfirmDialogProps = {
@@ -42,27 +43,18 @@ export function ConfirmDialog({
         </p>
       )}
       <div className="mt-6 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
-        <button
-          type="button"
-          onClick={onClose}
-          className="min-h-11 rounded-lg border border-slate-200 px-4 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-        >
+        <Button variant="secondary" onClick={onClose}>
           {cancelLabel}
-        </button>
-        <button
-          type="button"
+        </Button>
+        <Button
+          variant={isDestructive ? "danger" : "primary"}
           onClick={() => {
             onConfirm();
             onClose();
           }}
-          className={`min-h-11 rounded-lg px-4 text-sm font-semibold text-white ${
-            isDestructive
-              ? "bg-red-600 hover:bg-red-700"
-              : "bg-indigo-600 hover:bg-indigo-700"
-          }`}
         >
           {confirmLabel}
-        </button>
+        </Button>
       </div>
     </AccessibleDialog>
   );

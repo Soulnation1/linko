@@ -1,6 +1,7 @@
 "use client";
 
 import { Plus, Trash2 } from "lucide-react";
+import { Button, Input } from "@/components/ui";
 
 export type EditableOption = {
   id: string;
@@ -50,19 +51,19 @@ export function OptionsEditor({
           <label className="sr-only" htmlFor={`${option.id}-label`}>
             Option {index + 1} name
           </label>
-          <input
+          <Input
             id={`${option.id}-label`}
             value={option.label}
             onChange={(event) => update(index, { label: event.currentTarget.value })}
             placeholder="Option name"
-            className="min-h-11 min-w-0 flex-1 rounded-md border border-slate-200 px-3 text-sm text-slate-900 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
+            className="min-w-0 flex-1"
           />
           {showPrice && (
             <>
               <label className="sr-only" htmlFor={`${option.id}-price`}>
                 Option {index + 1} price
               </label>
-              <input
+              <Input
                 id={`${option.id}-price`}
                 type="number"
                 min="0"
@@ -77,7 +78,7 @@ export function OptionsEditor({
                   })
                 }
                 placeholder={priceOptional ? "Price (optional)" : "Price"}
-                className="min-h-11 min-w-0 rounded-md border border-slate-200 px-3 text-sm text-slate-900 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 sm:w-40"
+                className="min-w-0 sm:w-40"
               />
             </>
           )}
@@ -86,7 +87,7 @@ export function OptionsEditor({
               <label className="sr-only" htmlFor={`${option.id}-duration`}>
                 Option {index + 1} duration in minutes
               </label>
-              <input
+              <Input
                 id={`${option.id}-duration`}
                 type="number"
                 min="0"
@@ -101,29 +102,29 @@ export function OptionsEditor({
                   })
                 }
                 placeholder="Duration (min)"
-                className="min-h-11 min-w-0 rounded-md border border-slate-200 px-3 text-sm text-slate-900 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 sm:w-40"
+                className="min-w-0 sm:w-40"
               />
             </>
           )}
-          <button
-            type="button"
+          <Button
+            variant="ghost"
             onClick={() => onChange(value.filter((_, row) => row !== index))}
             aria-label={`Remove option ${index + 1}`}
-            className="flex min-h-11 items-center justify-center gap-2 rounded-md px-3 text-sm font-medium text-red-700 hover:bg-red-50"
+            className="text-red-700 hover:bg-red-50 hover:text-red-700"
           >
             <Trash2 className="size-4" aria-hidden="true" />
             <span className="sm:sr-only">Remove</span>
-          </button>
+          </Button>
         </div>
       ))}
-      <button
-        type="button"
+      <Button
+        variant="ghost"
         onClick={() => onChange([...value, createOption()])}
-        className="inline-flex min-h-11 items-center gap-2 rounded-lg px-3 text-sm font-semibold text-indigo-700 hover:bg-indigo-50"
+        className="text-indigo-700 hover:bg-indigo-50 hover:text-indigo-700"
       >
         <Plus className="size-4" aria-hidden="true" />
         Add option
-      </button>
+      </Button>
     </fieldset>
   );
 }

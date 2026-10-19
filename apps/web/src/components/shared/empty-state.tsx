@@ -1,4 +1,6 @@
 import type { ReactNode } from "react";
+import { Card } from "@/components/ui";
+import { cn } from "@/lib/utils";
 
 export function EmptyState({
   title,
@@ -14,9 +16,7 @@ export function EmptyState({
   className?: string;
 }) {
   return (
-    <section
-      className={`rounded-xl border border-slate-200 bg-white px-6 py-10 text-center ${className}`}
-    >
+    <Card className={cn("px-6 py-10 text-center", className)}>
       {icon && (
         <span className="mx-auto flex size-12 items-center justify-center rounded-xl bg-slate-50 text-slate-500">
           {icon}
@@ -29,6 +29,6 @@ export function EmptyState({
         </p>
       )}
       {action && <div className="mt-5">{action}</div>}
-    </section>
+    </Card>
   );
 }
