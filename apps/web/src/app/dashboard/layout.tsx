@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { AuthGuard } from "@/components/auth";
 import { DashboardShell } from "@/components/dashboard";
 
 export default function DashboardLayout({
@@ -6,6 +7,10 @@ export default function DashboardLayout({
 }: {
   children: ReactNode;
 }) {
-  // TODO(auth): protect dashboard routes once real authentication is implemented.
-  return <DashboardShell>{children}</DashboardShell>;
+  // TODO(auth): a real backend must also enforce access server-side.
+  return (
+    <AuthGuard>
+      <DashboardShell>{children}</DashboardShell>
+    </AuthGuard>
+  );
 }
