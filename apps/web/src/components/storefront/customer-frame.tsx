@@ -25,7 +25,7 @@ export function CustomerFrame({
         : 'Last step';
 
   return (
-    <main className="min-h-screen bg-[var(--bg-base)] pb-12 font-sans text-theme-primary">
+    <main className="min-h-screen bg-[var(--bg-base)]  pb-12 font-sans text-theme-primary">
       <header className="sticky top-0 z-30 border-b border-[var(--border-subtle)] bg-[var(--bg-header)] backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-2xl items-center justify-end px-4">
           <div className="flex items-center justify-between  w-full gap-3">

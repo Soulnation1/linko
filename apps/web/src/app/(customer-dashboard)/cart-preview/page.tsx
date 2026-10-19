@@ -22,8 +22,7 @@ export default function CartPreviewPage() {
             aria-hidden="true"
           />
           <span>
-            Make sure everything looks right. You can add delivery details with
-            the additional note or on WhatsApp.
+            Make sure everything looks right. You can edit your cart or add a note for the business before continuing.
           </span>
         </div>
       }
@@ -98,7 +97,7 @@ export default function CartPreviewPage() {
               onChange={(event) => setCustomerNote(event.target.value)}
               maxLength={300}
               rows={3}
-              placeholder="For example: i want it deleivered tonight."
+              placeholder="Deliver it to No 10, Dele Ashiru street,okota Lagos."
               className="mt-3 block w-full resize-y rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-base)] px-3 py-2.5 text-[13px] text-theme-primary placeholder:text-theme-secondary focus-visible:outline-none"
             />
             <span className="mt-1 block text-right text-[10px] text-theme-secondary">

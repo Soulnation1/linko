@@ -16,6 +16,15 @@ export default function OrderNowPage() {
     new Set(MOCK_MENU_ITEMS.map((item) => item.category))
   );
 
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const searchTerm = event.target.value.toLowerCase();
+    // Filter the menu items based on the search term
+    const filteredItems = MOCK_MENU_ITEMS.filter((item) =>
+      item.name.toLowerCase().includes(searchTerm)
+    );
+    // Update the displayed items based on the filtered results
+    // You can implement this logic as needed, e.g., using state to manage the displayed items.
+  }
   return (
     <main className="min-h-screen bg-[var(--bg-base)] pb-28 font-sans text-theme-primary transition-colors duration-250">
       {/* Cover Banner */}
@@ -36,6 +45,15 @@ export default function OrderNowPage() {
             </p>
           )}
         </div>
+        <div>
+          <input
+          type='search'
+          placeholder='Search menu items...'
+
+          className='w-full rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] px-4 py-3 text-sm placeholder:text-theme-secondary focus:outline-none focus:ring-2 focus:ring-[#4F46E5] focus:ring-offset-1'
+          onChange={handleSearch}
+          />
+        </div>
 
         {/* Menu Items grouped by Category */}
         <div className="space-y-8 pt-2">
@@ -45,9 +63,10 @@ export default function OrderNowPage() {
             );
             return (
               <section key={category} className="space-y-3">
-                <h2 className="text-xs font-bold tracking-wider text-theme-accent uppercase">
+                 <h2 className="text-xs font-bold tracking-wider text-theme-accent uppercase">
                   {category}
                 </h2>
+               
 
                 <div className="space-y-3">
                   {items.map((item) => {
@@ -57,8 +76,8 @@ export default function OrderNowPage() {
                     return (
                       <div
                         key={item.id}
-                        className={`flex items-center justify-between gap-4 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-4 transition-all ${
-                          !isAvailable ? '' : 'hover:border-[var(--accent-indigo)]'
+                        className={`flex items-center justify-between gap-4 rounded-4xl shadow-sm p-4 transition-all ${
+                          !isAvailable ? ' transition-opacity duration-300 hover:opacity-30' : 'hover:border-[var(--accent-indigo)] border  border-[var(--border-subtle)] bg-[var(--bg-surface)]'
                         }`}
                       >
                         {/* Thumbnail / Info */}
