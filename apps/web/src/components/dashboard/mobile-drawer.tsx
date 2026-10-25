@@ -1,15 +1,15 @@
 "use client";
 
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { LogOut, X } from "lucide-react";
+import { X } from "lucide-react";
 import { createPortal } from "react-dom";
 import { useRef, type RefObject } from "react";
-import { toast } from "sonner";
 import { useIsMounted } from "@/hooks/use-is-mounted";
 import { useModalBehavior } from "@/hooks/use-modal-behavior";
 import { MOCK_BUSINESS } from "@/lib/mock-data";
 import { BusinessIdentity } from "./business-identity";
 import { DashboardNav } from "./dashboard-nav";
+import { LogoutButton } from "./logout-button";
 
 export function MobileDrawer({
   open,
@@ -74,16 +74,7 @@ export function MobileDrawer({
               <DashboardNav business={MOCK_BUSINESS} onNavigate={onClose} />
             </div>
             <div className="border-t border-slate-100 p-3">
-              <button
-                type="button"
-                onClick={() =>
-                  toast.info("Sign out will be available when authentication is added.")
-                }
-                className="flex min-h-11 w-full items-center gap-3 rounded-lg px-3 text-sm font-medium text-slate-600 hover:bg-slate-100"
-              >
-                <LogOut className="size-4" aria-hidden="true" />
-                Log out
-              </button>
+              <LogoutButton />
             </div>
           </motion.aside>
         </div>

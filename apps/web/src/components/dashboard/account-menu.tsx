@@ -3,9 +3,9 @@
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { useId, useRef, useState } from "react";
-import { toast } from "sonner";
 import { Avatar } from "@/components/ui/avatar";
 import { useEscapeKey } from "@/hooks/use-escape-key";
+import { useSignOut } from "@/hooks/use-sign-out";
 import type { Business } from "@/types";
 
 const MENU_ITEM_CLASS =
@@ -21,6 +21,7 @@ export function AccountMenu({
   const [open, setOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const menuId = useId();
+  const signOut = useSignOut();
 
   const close = () => setOpen(false);
   useEscapeKey(open, () => {
@@ -81,7 +82,7 @@ export function AccountMenu({
               type="button"
               onClick={() => {
                 close();
-                toast.info("Sign out will be available when authentication is added.");
+                void signOut();
               }}
               className={MENU_ITEM_CLASS}
             >

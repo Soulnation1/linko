@@ -1,20 +1,24 @@
 import type { Metadata } from "next";
+import { AuthLink, LoginForm, RedirectIfAuthenticated } from "@/components/auth";
 import { AuthLayout } from "@/components/shared";
 
 export const metadata: Metadata = {
-  title: "Log in · Linko",
+  title: "Log in | Linko",
 };
 
-// TODO(auth): replace this placeholder with the real login form in the authentication phase.
 export default function LoginPage() {
   return (
     <AuthLayout
       heading="Log in to Linko"
       subtext="Manage your business page, listings and orders."
+      footer={
+        <>
+          New to Linko? <AuthLink href="/signup">Create an account</AuthLink>
+        </>
+      }
     >
-      <p className="text-sm text-theme-secondary">
-        The login form is coming soon.
-      </p>
+      <RedirectIfAuthenticated />
+      <LoginForm />
     </AuthLayout>
   );
 }
