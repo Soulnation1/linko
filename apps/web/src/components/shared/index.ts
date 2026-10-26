@@ -1,4 +1,5 @@
 export { AuthBrandPanel } from './auth-brand-panel';
+export { AuthFlowDemo } from './auth-flow-demo';
 export { AuthLayout } from './auth-layout';
 export { ConfirmDialog } from './confirm-dialog';
 export { EmptyState } from './empty-state';
