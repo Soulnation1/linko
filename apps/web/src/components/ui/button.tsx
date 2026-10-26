@@ -1,3 +1,4 @@
+import { Loader2 } from "lucide-react";
 import type { ComponentProps } from "react";
 import { cn } from "@/lib/utils";
 
@@ -36,6 +37,7 @@ export function buttonStyles({
 export type ButtonProps = ComponentProps<"button"> & {
   variant?: ButtonVariant;
   size?: ButtonSize;
+  loading?: boolean;
 };
 
 export function Button({
@@ -43,13 +45,21 @@ export function Button({
   size,
   className,
   type = "button",
+  loading = false,
+  disabled,
+  children,
   ...props
 }: ButtonProps) {
   return (
     <button
       type={type}
+      disabled={disabled || loading}
+      aria-busy={loading || undefined}
       className={buttonStyles({ variant, size, className })}
       {...props}
-    />
+    >
+      {loading && <Loader2 className="size-4 animate-spin" aria-hidden="true" />}
+      {children}
+    </button>
   );
 }

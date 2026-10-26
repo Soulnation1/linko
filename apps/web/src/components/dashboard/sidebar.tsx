@@ -1,8 +1,7 @@
-import { LogOut } from "lucide-react";
-import { toast } from "sonner";
 import { MOCK_BUSINESS } from "@/lib/mock-data";
 import { BusinessIdentity } from "./business-identity";
 import { DashboardNav } from "./dashboard-nav";
+import { LogoutButton } from "./logout-button";
 
 export function Sidebar() {
   return (
@@ -14,14 +13,7 @@ export function Sidebar() {
         <DashboardNav business={MOCK_BUSINESS} />
       </div>
       <div className="border-t border-slate-100 p-3">
-        <button
-          type="button"
-          onClick={() => toast.info("Sign out will be available when authentication is added.")}
-          className="flex min-h-11 w-full items-center gap-3 rounded-lg px-3 text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900"
-        >
-          <LogOut className="size-4" aria-hidden="true" />
-          Log out
-        </button>
+        <LogoutButton />
       </div>
     </aside>
   );
